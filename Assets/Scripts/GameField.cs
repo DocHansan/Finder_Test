@@ -39,7 +39,7 @@ public class GameField : MonoBehaviour
         _verticalOffset = new Vector3(0, (_cellSize.y + IntercellularSpace) / 2, 0);
 
         CreateCardPreparer();
-        _dataPreparer.CreateLevelData(3);
+        _dataPreparer.CreateLevelData(9);
 
         CreateCellLine();
         CreateCellColumn();
