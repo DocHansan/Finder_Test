@@ -1,0 +1,93 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f859c7a216207a47a3723eb95eb47cb, type: 3}
+  m_Name: Letters
+  m_EditorClassIdentifier: 
+  CardData:
+  - Identifier: A
+    Sprite: {fileID: 270001926, guid: b81cbb90a7f1ab34399610e55b9d1040, type: 3}
+    RotationAngle: 0
+  - Identifier: B
+    Sprite: {fileID: -684618029, guid: b81cbb90a7f1ab34399610e55b9d1040, type: 3}
+    RotationAngle: 0
+  - Identifier: C
+    Sprite: {fileID: 696450765, guid: b81cbb90a7f1ab34399610e55b9d1040, type: 3}
+    RotationAngle: 0
+  - Identifier: D
+    Sprite: {fileID: -197838506, guid: b81cbb90a7f1ab34399610e55b9d1040, type: 3}
+    RotationAngle: 0
+  - Identifier: E
+    Sprite: {fileID: 1981150632, guid: b81cbb90a7f1ab34399610e55b9d1040, type: 3}
+    RotationAngle: 0
+  - Identifier: F
+    Sprite: {fileID: 1914263047, guid: b81cbb90a7f1ab34399610e55b9d1040, type: 3}
+    RotationAngle: 0
+  - Identifier: G
+    Sprite: {fileID: -1705827048, guid: b81cbb90a7f1ab34399610e55b9d1040, type: 3}
+    RotationAngle: 0
+  - Identifier: H
+    Sprite: {fileID: -3029464, guid: b81cbb90a7f1ab34399610e55b9d1040, type: 3}
+    RotationAngle: 0
+  - Identifier: I
+    Sprite: {fileID: 1774174252, guid: b81cbb90a7f1ab34399610e55b9d1040, type: 3}
+    RotationAngle: 0
+  - Identifier: J
+    Sprite: {fileID: 2049000562, guid: b81cbb90a7f1ab34399610e55b9d1040, type: 3}
+    RotationAngle: 0
+  - Identifier: K
+    Sprite: {fileID: -777786852, guid: b81cbb90a7f1ab34399610e55b9d1040, type: 3}
+    RotationAngle: 0
+  - Identifier: L
+    Sprite: {fileID: 1237167526, guid: b81cbb90a7f1ab34399610e55b9d1040, type: 3}
+    RotationAngle: 0
+  - Identifier: M
+    Sprite: {fileID: -1665840783, guid: b81cbb90a7f1ab34399610e55b9d1040, type: 3}
+    RotationAngle: 0
+  - Identifier: N
+    Sprite: {fileID: 781482557, guid: 924c3fcf9aa28b44bb7dc83688ac5f6c, type: 3}
+    RotationAngle: 0
+  - Identifier: O
+    Sprite: {fileID: -1315771567, guid: 924c3fcf9aa28b44bb7dc83688ac5f6c, type: 3}
+    RotationAngle: 0
+  - Identifier: P
+    Sprite: {fileID: -559120182, guid: 924c3fcf9aa28b44bb7dc83688ac5f6c, type: 3}
+    RotationAngle: 0
+  - Identifier: Q
+    Sprite: {fileID: 1092976121, guid: 924c3fcf9aa28b44bb7dc83688ac5f6c, type: 3}
+    RotationAngle: 0
+  - Identifier: R
+    Sprite: {fileID: 1786216306, guid: 924c3fcf9aa28b44bb7dc83688ac5f6c, type: 3}
+    RotationAngle: 0
+  - Identifier: S
+    Sprite: {fileID: -423447258, guid: 924c3fcf9aa28b44bb7dc83688ac5f6c, type: 3}
+    RotationAngle: 0
+  - Identifier: T
+    Sprite: {fileID: 327014224, guid: 924c3fcf9aa28b44bb7dc83688ac5f6c, type: 3}
+    RotationAngle: 0
+  - Identifier: U
+    Sprite: {fileID: -2129253038, guid: 924c3fcf9aa28b44bb7dc83688ac5f6c, type: 3}
+    RotationAngle: 0
+  - Identifier: V
+    Sprite: {fileID: 1373131866, guid: 924c3fcf9aa28b44bb7dc83688ac5f6c, type: 3}
+    RotationAngle: 0
+  - Identifier: W
+    Sprite: {fileID: 2006643251, guid: 924c3fcf9aa28b44bb7dc83688ac5f6c, type: 3}
+    RotationAngle: 0
+  - Identifier: X
+    Sprite: {fileID: 363341454, guid: 924c3fcf9aa28b44bb7dc83688ac5f6c, type: 3}
+    RotationAngle: 0
+  - Identifier: Y
+    Sprite: {fileID: -133164399, guid: 26b4925754933ec418dc99ff48e2b5fe, type: 3}
+    RotationAngle: 0
+  - Identifier: Z
+    Sprite: {fileID: -1071712685, guid: 26b4925754933ec418dc99ff48e2b5fe, type: 3}
+    RotationAngle: 0
