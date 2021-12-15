@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Cell : MonoBehaviour
 {
+    [SerializeField]
     public GameObject SpriteRenderer;
 
     int _identifier;
@@ -13,9 +14,7 @@ public class Cell : MonoBehaviour
 
     void OnMouseDown()
     {
-        // Destroy the gameObject after clicking on it
-        Debug.Log("Sprite Clicked");
-        Debug.Log(_identifier);
+        GameObject.Find("CardChecker").GetComponent<CardChecker>().CompareCardIdentifiers(_identifier);
     }
 
     public void SetCellParameters(int identifier, Sprite sprite, float rotationAngle)
@@ -29,6 +28,7 @@ public class Cell : MonoBehaviour
     void VisualizeSprite()
     {
         SpriteRenderer.GetComponent<SpriteRenderer>().sprite = _cellSprite;
+        SpriteRenderer.transform.rotation = Quaternion.identity;
         SpriteRenderer.transform.Rotate(new Vector3(0, 0, -_rotationAngle));
     }
 }
