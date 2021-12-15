@@ -18,7 +18,7 @@ public class GameField : MonoBehaviour
     Vector3 _horizontalOffset;
     Vector3 _verticalOffset;
     Vector3 _cellSize;
-    CardPreparer _dataPreparer;
+    CardDataPreparer _dataPreparer;
     int _levelIteration = 0;
 
 
@@ -48,7 +48,7 @@ public class GameField : MonoBehaviour
 
     void CreateCardPreparer()
     {
-        _dataPreparer = new CardPreparer(CardDataKits);
+        _dataPreparer = new CardDataPreparer(CardDataKits);
     }
 
     void CreateCellLine()
