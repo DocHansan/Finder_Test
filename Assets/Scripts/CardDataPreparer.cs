@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CardPreparer
+public class CardDataPreparer
 {
     AllCardData _cardDataKits;
     int _chosenCardDataKit;
@@ -10,7 +10,7 @@ public class CardPreparer
     List<int> _cardDataIndexes;
     List<int>[] _previousChosenCards;
 
-    public CardPreparer(AllCardData InputCardData)
+    public CardDataPreparer(AllCardData InputCardData)
     {
         _cardDataKits = InputCardData;
         _previousChosenCards = new List<int>[_cardDataKits.CardDataKits.Length];
