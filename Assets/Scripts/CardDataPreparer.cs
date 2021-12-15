@@ -13,12 +13,8 @@ public class CardDataPreparer
     public CardDataPreparer(AllCardData InputCardData)
     {
         _cardDataKits = InputCardData;
-        _previousChosenCards = new List<int>[_cardDataKits.CardDataKits.Length];
 
-        for (int i = 0; i < _previousChosenCards.Length; i++)
-        {
-            _previousChosenCards[i] = new List<int>();
-        }
+        ResetParameters();
     }
 
     public void CreateLevelData(int lengthResultList)
@@ -31,6 +27,12 @@ public class CardDataPreparer
 
         while (_cardDataIndexes.Count < lengthResultList)
         {
+            if (_cardDataKits.CardDataKits[_chosenCardDataKit].CardData.Length - _previousChosenCards[_chosenCardDataKit].Count < lengthResultList)
+            {
+                CreateLevelData(lengthResultList);
+                return;
+            }
+
             int tempIndex = Random.Range(0, _cardDataKits.CardDataKits[_chosenCardDataKit].CardData.Length);
             
             if (tempIndexes.Contains(tempIndex) || _previousChosenCards[_chosenCardDataKit].Contains(tempIndex)) continue;
@@ -58,5 +60,15 @@ public class CardDataPreparer
     public int GetChosenCardType()
     {
         return _chosenCard;
+    }
+
+    public void ResetParameters()
+    {
+        _previousChosenCards = new List<int>[_cardDataKits.CardDataKits.Length];
+
+        for (int i = 0; i < _previousChosenCards.Length; i++)
+        {
+            _previousChosenCards[i] = new List<int>();
+        }
     }
 }
