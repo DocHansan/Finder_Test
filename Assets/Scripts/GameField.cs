@@ -29,13 +29,8 @@ public class GameField : MonoBehaviour
 
     void CreateCell(Vector3 position)
     {
-        //int tempIdentifier = _dataPreparer.GetLevelCardIndexes()[index];
-        //Sprite tempSprite = CardDataKits.CardDataKits[_dataPreparer.GetChosenCardDataKit()].CardData[_dataPreparer.GetLevelCardIndexes()[index]].Sprite;
-        //float tempRotationAngle = CardDataKits.CardDataKits[_dataPreparer.GetChosenCardDataKit()].CardData[_dataPreparer.GetLevelCardIndexes()[index]].RotationAngle;
-
         GameObject newCell = Instantiate(CellPrefab, position, Quaternion.identity);
         _cellsList.Add(newCell);
-        //newCell.GetComponent<Cell>().SetCellParameters(tempIdentifier, tempSprite, tempRotationAngle);
     }
 
     void FillCells()
@@ -83,7 +78,6 @@ public class GameField : MonoBehaviour
 
     void CreateLevel()
     {
-        Debug.Log(_levelIteration);
         _dataPreparer.CreateLevelData(_levelIteration * CellLineCount);
         _curentCardIdentifier = _dataPreparer.GetChosenCardType();
 
