@@ -14,6 +14,11 @@ public class CardPreparer
     {
         _cardDataKits = InputCardData;
         _previousChosenCards = new List<int>[_cardDataKits.CardDataKits.Length];
+
+        for (int i = 0; i < _previousChosenCards.Length; i++)
+        {
+            _previousChosenCards[i] = new List<int>();
+        }
     }
 
     public void CreateLevelData(int lengthResultList)
@@ -27,7 +32,7 @@ public class CardPreparer
         while (_cardDataIndexes.Count < lengthResultList)
         {
             int tempIndex = Random.Range(0, _cardDataKits.CardDataKits[_chosenCardDataKit].CardData.Length);
-             
+            
             if (tempIndexes.Contains(tempIndex) || _previousChosenCards[_chosenCardDataKit].Contains(tempIndex)) continue;
             else
             {
