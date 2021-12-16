@@ -25,14 +25,14 @@ public class CardDataPreparer
         _cardDataIndexes = new List<int>();
         List<int> tempIndexes = new List<int>();
 
+        if (CheckPossibilityToUseDataKit(lengthResultList))
+        {
+            CreateLevelData(lengthResultList);
+            return;
+        }
+
         while (_cardDataIndexes.Count < lengthResultList)
         {
-            if (_cardDataKits.CardDataKits[_chosenCardDataKit].CardData.Length - _previousChosenCards[_chosenCardDataKit].Count < lengthResultList)
-            {
-                CreateLevelData(lengthResultList);
-                return;
-            }
-
             int tempIndex = Random.Range(0, _cardDataKits.CardDataKits[_chosenCardDataKit].CardData.Length);
             
             if (tempIndexes.Contains(tempIndex) || _previousChosenCards[_chosenCardDataKit].Contains(tempIndex)) continue;
@@ -45,6 +45,11 @@ public class CardDataPreparer
 
         _chosenCard = _cardDataIndexes[_chosenCard];
         _previousChosenCards[_chosenCardDataKit].Add(_chosenCard);
+    }
+
+    bool CheckPossibilityToUseDataKit(int lengthResultList)
+    {
+        return _cardDataKits.CardDataKits[_chosenCardDataKit].CardData.Length - _previousChosenCards[_chosenCardDataKit].Count < lengthResultList;
     }
 
     public List<int> GetLevelCardIndexes()
