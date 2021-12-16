@@ -26,6 +26,16 @@ public class GameField : MonoBehaviour
     int _curentCardIdentifier;
     List<GameObject> _cellsList;
 
+    void Start()
+    {
+        _cellSize = Vector3.Scale(CellPrefab.GetComponent<BoxCollider2D>().size, CellPrefab.GetComponent<Transform>().localScale);
+        _horizontalOffset = new Vector3(_cellSize.x + IntercellularSpace, 0, 0);
+        _verticalOffset = new Vector3(0, (_cellSize.y + IntercellularSpace) / 2, 0);
+
+        _dataPreparer = new CardDataPreparer(CardDataKits);
+
+        RestartGame();
+    }
 
     void CreateCell(Vector3 position)
     {
@@ -48,23 +58,15 @@ public class GameField : MonoBehaviour
         }
     }
 
-    void Start()
-    {
-        _cellSize = Vector3.Scale(CellPrefab.GetComponent<BoxCollider2D>().size, CellPrefab.GetComponent<Transform>().localScale);
-        _horizontalOffset = new Vector3(_cellSize.x + IntercellularSpace, 0, 0);
-        _verticalOffset = new Vector3(0, (_cellSize.y + IntercellularSpace) / 2, 0);
-
-        _dataPreparer = new CardDataPreparer(CardDataKits);
-
-        RestartGame();
-    }
-
-    void RestartGame()
+    public void RestartGame()
     {
         _levelIteration = 1;
         _cellsList = new List<GameObject>();
+
         DestroyCells();
+
         _dataPreparer.ResetParameters();
+
         CreateLevel();
     }
 
