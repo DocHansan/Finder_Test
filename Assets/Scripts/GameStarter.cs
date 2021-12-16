@@ -4,17 +4,10 @@ using UnityEngine;
 
 public class GameStarter : MonoBehaviour
 {
-    public AllCardData AllCardData;
-    public GameObject CellPrefab;
+    public GameField GameField;
 
-    // Start is called before the first frame update
-    void Start()
+    public void StartGame()
     {
-        
-    }
-
-    void SetCellPrefabForGameField()
-    {
-
+        GameField.GetComponent<GameField>().RestartGame();
     }
 }
