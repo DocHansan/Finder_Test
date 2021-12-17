@@ -17,6 +17,8 @@ public class GameField : MonoBehaviour
     public float IntercellularSpace = 0.2f;
     [SerializeField]
     public Text UITaskText;
+    [SerializeField]
+    public Button RestartButton;
 
     Vector3 _horizontalStartPoint;
     Vector3 _horizontalOffset;
@@ -27,7 +29,7 @@ public class GameField : MonoBehaviour
     int _curentCardIdentifier;
     List<GameObject> _cellsList;
 
-    void Start()
+    void Awake()
     {
         _cellSize = Vector3.Scale(CellPrefab.GetComponent<BoxCollider2D>().size, CellPrefab.GetComponent<Transform>().localScale);
         _horizontalStartPoint = new Vector3(0.5f * (CellColumnCount - 1) * (_cellSize.x + IntercellularSpace), 0, 0);
@@ -35,8 +37,6 @@ public class GameField : MonoBehaviour
         _verticalOffset = new Vector3(0, (_cellSize.y + IntercellularSpace) / 2, 0);
 
         _dataPreparer = new CardDataPreparer(CardDataKits);
-
-        RestartGame();
     }
 
     void CreateCell(Vector3 position)
@@ -60,7 +60,7 @@ public class GameField : MonoBehaviour
         }
     }
 
-    public void RestartGame()
+    public void ResetField()
     {
         _levelIteration = 1;
         _cellsList = new List<GameObject>();
@@ -119,7 +119,9 @@ public class GameField : MonoBehaviour
     public void ChangeLevelÑomplexity()
     {
         if (_levelIteration > CellLineCount)
-            RestartGame();
+        {
+            RestartButton.GetComponent<RestartButton>().ShowRestartButton();
+        }
         else
             CreateLevel();
     }

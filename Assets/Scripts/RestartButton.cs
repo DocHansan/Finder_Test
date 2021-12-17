@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class RestartButton : MonoBehaviour
 {
+    [SerializeField]
     public GameStarter GameStarter;
 
-    void OnMouseDown()
+    public void ShowRestartButton()
     {
-        GameStarter.StartGame();
+        gameObject.SetActive(true);
+    }
+
+    public void HideRestartButton()
+    {
+        gameObject.SetActive(false);
     }
 }
