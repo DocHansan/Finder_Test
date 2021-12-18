@@ -30,6 +30,7 @@ public class GameField : MonoBehaviour
     int _levelIteration;
     int _curentCardIdentifier;
     List<GameObject> _cellsList;
+    float _cellSpawnTime = 0.5f;
 
     void Awake()
     {
@@ -44,6 +45,8 @@ public class GameField : MonoBehaviour
     void CreateCell(Vector3 position)
     {
         GameObject newCell = Instantiate(CellPrefab, position, Quaternion.identity);
+        if (_levelIteration == 1)
+            newCell.GetComponent<Cell>().DoBounce(_cellSpawnTime);
         _cellsList.Add(newCell);
     }
 
