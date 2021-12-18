@@ -127,8 +127,6 @@ public class GameField : MonoBehaviour
         {
             foreach (GameObject Cell in _cellsList)
             {
-                FadeAnimator.FadeOut(FadeAnimator.FadeTime, Cell);
-                FadeAnimator.FadeOut(FadeAnimator.FadeTime, Cell.transform.GetChild(0).gameObject);
                 Destroy(Cell.GetComponent<BoxCollider2D>());
             }
             RestartButton.GetComponent<RestartButton>().ShowRestartButton();
