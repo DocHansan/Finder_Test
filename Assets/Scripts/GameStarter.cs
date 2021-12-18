@@ -12,7 +12,7 @@ public class GameStarter : MonoBehaviour
     [SerializeField]
     public Text TaskText;
     [SerializeField]
-    public FadeAnimator TestAnim;
+    public FadeAnimator FadeAnimator;
 
     void Start()
     {
@@ -22,7 +22,7 @@ public class GameStarter : MonoBehaviour
     public void StartGame()
     {
         RestartButton.GetComponent<RestartButton>().HideRestartButton();
-        TestAnim.FadeIn(2f, TaskText);
+        FadeAnimator.FadeIn(FadeAnimator.FadeTime, TaskText);
         GameField.GetComponent<GameField>().ResetField();
     }
 }
