@@ -21,11 +21,6 @@ public class FadeAnimator : MonoBehaviour
         StartCoroutine(Fade(time, fadingObject, false));
     }
 
-    public void FadeOut(float time, GameObject fadingObject)
-    {
-        StartCoroutine(Fade(time, fadingObject, false));
-    }
-
     IEnumerator Fade(float time, Text fadingObject, bool isNeedFadeIn)
     {
         if (isNeedFadeIn)
@@ -41,27 +36,6 @@ public class FadeAnimator : MonoBehaviour
             while (fadingObject.color.a > 0.0f)
             {
                 fadingObject.color = new Color(fadingObject.color.r, fadingObject.color.g, fadingObject.color.b, fadingObject.color.a - (Time.deltaTime / time));
-                yield return null;
-            }
-        }
-    }
-
-    IEnumerator Fade(float time, GameObject fadingObject, bool isNeedFadeIn)
-    {
-        SpriteRenderer spriteRenderer = fadingObject.GetComponent<SpriteRenderer>();
-        if (isNeedFadeIn)
-        {
-            while (spriteRenderer != null && spriteRenderer.color.a < 1.0f)
-            {
-                spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, spriteRenderer.color.a + (Time.deltaTime / time));
-                yield return null;
-            }
-        }
-        else
-        {
-            while (spriteRenderer != null && spriteRenderer.color.a > 0.0f)
-            {
-                spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, spriteRenderer.color.a - (Time.deltaTime / time));
                 yield return null;
             }
         }
