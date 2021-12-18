@@ -412,6 +412,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameField: {fileID: 1718596511}
+  Cell: {fileID: 2893313092088491705, guid: bc4f838b1202f93449d2e0d6364af94a, type: 3}
 --- !u!4 &558010675
 Transform:
   m_ObjectHideFlags: 0
