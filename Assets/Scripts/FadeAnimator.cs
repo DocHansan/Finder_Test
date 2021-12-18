@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class FadeAnimator : MonoBehaviour
 {
+    [SerializeField][Range(0f, 5f)]
+    public float FadeTime;
+
     Color _AlphaZero;
     Color _AlphaFull;
 
@@ -18,10 +21,13 @@ public class FadeAnimator : MonoBehaviour
         StartCoroutine(Fade(time, fadingObject, false));
     }
 
+    public void FadeOut(float time, GameObject fadingObject)
+    {
+        StartCoroutine(Fade(time, fadingObject, false));
+    }
+
     IEnumerator Fade(float time, Text fadingObject, bool isNeedFadeIn)
     {
-        _AlphaZero = new Color(fadingObject.color.r, fadingObject.color.g, fadingObject.color.b, 0);
-        _AlphaFull = new Color(fadingObject.color.r, fadingObject.color.g, fadingObject.color.b, 1);
         if (isNeedFadeIn)
         {
             while (fadingObject.color.a < 1.0f)
@@ -38,7 +44,27 @@ public class FadeAnimator : MonoBehaviour
                 yield return null;
             }
         }
+    }
 
+    IEnumerator Fade(float time, GameObject fadingObject, bool isNeedFadeIn)
+    {
+        SpriteRenderer spriteRenderer = fadingObject.GetComponent<SpriteRenderer>();
+        if (isNeedFadeIn)
+        {
+            while (spriteRenderer != null && spriteRenderer.color.a < 1.0f)
+            {
+                spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, spriteRenderer.color.a + (Time.deltaTime / time));
+                yield return null;
+            }
+        }
+        else
+        {
+            while (spriteRenderer != null && spriteRenderer.color.a > 0.0f)
+            {
+                spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, spriteRenderer.color.a - (Time.deltaTime / time));
+                yield return null;
+            }
+        }
     }
 }
 
