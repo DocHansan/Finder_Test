@@ -19,6 +19,8 @@ public class GameField : MonoBehaviour
     public Text UITaskText;
     [SerializeField]
     public Button RestartButton;
+    [SerializeField]
+    public FadeAnimator FadeAnimator;
 
     Vector3 _horizontalStartPoint;
     Vector3 _horizontalOffset;
@@ -96,8 +98,8 @@ public class GameField : MonoBehaviour
         for (int i = 0; i < CellColumnCount; i++)
         {
             CreateCell(_horizontalStartPoint - Vector3.Scale(_horizontalOffset, new Vector3(i, 0, 0)) - _verticalOffset * (_levelIteration - 1));
-            FillCells();
         }
+        FillCells();
     }
 
     void CreateCellColumn()
@@ -120,6 +122,12 @@ public class GameField : MonoBehaviour
     {
         if (_levelIteration > CellLineCount)
         {
+            foreach (GameObject Cell in _cellsList)
+            {
+                FadeAnimator.FadeOut(FadeAnimator.FadeTime, Cell);
+                FadeAnimator.FadeOut(FadeAnimator.FadeTime, Cell.transform.GetChild(0).gameObject);
+                Destroy(Cell.GetComponent<BoxCollider2D>());
+            }
             RestartButton.GetComponent<RestartButton>().ShowRestartButton();
         }
         else
