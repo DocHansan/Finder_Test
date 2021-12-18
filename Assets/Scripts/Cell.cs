@@ -44,13 +44,13 @@ public class Cell : MonoBehaviour
     public void DoBounce(float time)
     {
         gameObject.transform.DORewind();
-        gameObject.transform.DOShakeScale(time, strength: _cellSize / 4, vibrato: 8, randomness: 1);
+        gameObject.transform.DOPunchScale(punch: _cellSize / 4, duration: time, vibrato: 8);
     }
 
     public void DoBounceCard(float time)
     {
         gameObject.transform.GetChild(0).gameObject.transform.DORewind();
-        gameObject.transform.GetChild(0).gameObject.transform.DOShakeScale(time, strength: _cardSpriteSize / 4, vibrato: 6, randomness: 1);
+        gameObject.transform.GetChild(0).gameObject.transform.DOPunchScale(punch: _cardSpriteSize / 4, duration: time, vibrato: 8);
     }
 
     public void DoShakeCard(float time)
