@@ -12,7 +12,6 @@ public class CardDataPreparer
     public CardDataPreparer(AllCardData InputCardData)
     {
         _cardDataKits = InputCardData;
-
         ResetParameters();
     }
 
@@ -22,6 +21,7 @@ public class CardDataPreparer
         _chosenCard = Random.Range(0, lengthResultList);
         _cardDataIndexes = new List<int>();
 
+        // Endless recursion if small DataKits
         if (CheckPossibilityToUseDataKit(lengthResultList))
         {
             CreateLevelData(lengthResultList);

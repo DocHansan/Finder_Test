@@ -4,7 +4,7 @@ using DG.Tweening;
 public class Cell : MonoBehaviour
 {
     [SerializeField]
-    public GameObject CardSprite;
+    GameObject _cardSprite;
 
     string _identifier;
     float _rotationAngle;
@@ -15,7 +15,7 @@ public class Cell : MonoBehaviour
     void Awake()
     {
         _cellSize = Vector3.Scale(gameObject.GetComponent<BoxCollider2D>().size, gameObject.GetComponent<Transform>().localScale);
-        _cardSpriteSize = Vector3.Scale(_cellSize, CardSprite.GetComponent<Transform>().localScale);
+        _cardSpriteSize = Vector3.Scale(_cellSize, _cardSprite.GetComponent<Transform>().localScale);
     }
 
     void OnMouseDown()
@@ -33,9 +33,9 @@ public class Cell : MonoBehaviour
 
     void VisualizeSprite()
     {
-        CardSprite.GetComponent<SpriteRenderer>().sprite = _cellSprite;
-        CardSprite.transform.rotation = Quaternion.identity;
-        CardSprite.transform.Rotate(new Vector3(0, 0, -_rotationAngle));
+        _cardSprite.GetComponent<SpriteRenderer>().sprite = _cellSprite;
+        _cardSprite.transform.rotation = Quaternion.identity;
+        _cardSprite.transform.Rotate(new Vector3(0, 0, -_rotationAngle));
     }
 
     public void DoBounce(float time)

@@ -7,37 +7,44 @@ public class FadeAnimator : MonoBehaviour
     [SerializeField][Range(0f, 5f)]
     public float FadeTime;
 
-    public void Fade(Graphic fadingObject, bool isNeedFadeIn)
+    Graphic _fadingObject;
+
+    void Awake()
     {
-        StartCoroutine(MakeFade(FadeTime, fadingObject, isNeedFadeIn));
+        _fadingObject = GetComponent<Graphic>();
     }
 
-    IEnumerator MakeFade(float time, Graphic fadingObject, bool isNeedFadeIn)
+    public void Fade(bool isNeedFadeIn)
     {
-        fadingObject.color = ChangeAlpha(fadingObject.color, isNeedFadeIn ? 0 : 1);
+        StartCoroutine(MakeFade(FadeTime, isNeedFadeIn));
+    }
+
+    IEnumerator MakeFade(float time, bool isNeedFadeIn)
+    {
+        _fadingObject.color = ChangeAlpha(_fadingObject.color, isNeedFadeIn ? 0 : 1);
 
         if (isNeedFadeIn)
         {
-            while (fadingObject.color.a < 1.0f)
+            while (_fadingObject.color.a < 1.0f)
             {
-                fadingObject.color = AddAlpha(fadingObject.color, time);
+                _fadingObject.color = AddAlpha(_fadingObject.color, Time.deltaTime / time);
                 yield return null;
             }
         }
 
         else
         {
-            while (fadingObject.color.a > 0.0f)
+            while (_fadingObject.color.a > 0.0f)
             {
-                fadingObject.color = AddAlpha(fadingObject.color, -time);
+                _fadingObject.color = AddAlpha(_fadingObject.color, -Time.deltaTime / time);
                 yield return null;
             }
         }
     }
 
-    Color AddAlpha(Color changingColor, float time)
+    Color AddAlpha(Color changingColor, float alphaOffset)
     {
-        return new Color(changingColor.r, changingColor.g, changingColor.b, changingColor.a + (Time.deltaTime / time));
+        return new Color(changingColor.r, changingColor.g, changingColor.b, changingColor.a + alphaOffset);
     }
 
     Color ChangeAlpha(Color changingColor, float newAlpha)

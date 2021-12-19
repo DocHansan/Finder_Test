@@ -9,14 +9,12 @@ public class SceneReloader : MonoBehaviour
     public Text LoadProgress;
 
     FadeAnimator _fadeAnimator;
-    Image _endScreenImage;
     float _fadeTime;
     float _loadTime = 1f;
 
     void Awake()
     {
         _fadeAnimator = GetComponent<FadeAnimator>();
-        _endScreenImage = GetComponent<Image>();
         _fadeTime = _fadeAnimator.FadeTime;
     }
 
@@ -27,7 +25,7 @@ public class SceneReloader : MonoBehaviour
 
     IEnumerator MakeFadeEndScreen()
     {
-        _fadeAnimator.Fade(_endScreenImage, true);
+        _fadeAnimator.Fade(true);
         yield return new WaitForSeconds(_fadeTime);
         StartCoroutine(UpdateLoadProgress());
         

@@ -3,7 +3,7 @@ using UnityEngine;
 public class CardChecker : MonoBehaviour
 {
     [SerializeField]
-    public GameField GameField;
+    GameField _gameField;
 
     float _bounceCardAnimTime = 0.5f;
     float _shakeCardAnimTime = 0.5f;
@@ -11,7 +11,7 @@ public class CardChecker : MonoBehaviour
 
     public void CompareCardIdentifiers(string klickedCellIdentifier, Cell cell)
     {
-        if (klickedCellIdentifier == GameField.GetCardIdentifier())
+        if (klickedCellIdentifier == _gameField.GetCardIdentifier())
         {
             cell.DoBounceCard(_bounceCardAnimTime);
             if (!_isRightCardCklicked)
@@ -30,6 +30,6 @@ public class CardChecker : MonoBehaviour
     void ChangeLevel()
     {
         _isRightCardCklicked = false;
-        GameField.ChangeLevel—omplexity();
+        _gameField.ChangeLevel—omplexity();
     }
 }

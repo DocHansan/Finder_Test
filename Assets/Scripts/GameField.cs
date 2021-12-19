@@ -5,21 +5,21 @@ using UnityEngine.UI;
 public class GameField : MonoBehaviour
 {
     [SerializeField]
-    public GameObject CellPrefab;
+    GameObject _cellPrefab;
     [SerializeField][Range(1, 4)]
-    public int CellLineCount;
+    int _cellLineCount;
     [SerializeField][Range(1, 5)]
-    public int CellColumnCount;
+    int _cellColumnCount;
     [SerializeField]
-    public AllCardData CardDataKits;
+    AllCardData _cardDataKits;
     [SerializeField][Range(0f, 2f)]
-    public float IntercellularSpace = 0.2f;
+    float _intercellularSpace = 0.2f;
     [SerializeField]
-    public Text UITaskText;
+    Text _uiTaskText;
     [SerializeField]
-    public Button RestartButton;
+    Button _restartButton;
     [SerializeField]
-    public GameObject EndGameScreen;
+    GameObject _endGameScreen;
 
     Vector3 _horizontalStartPoint;
     Vector3 _horizontalOffset;
@@ -34,17 +34,17 @@ public class GameField : MonoBehaviour
 
     void Awake()
     {
-        _cellSize = Vector3.Scale(CellPrefab.GetComponent<BoxCollider2D>().size, CellPrefab.GetComponent<Transform>().localScale);
-        _horizontalStartPoint = new Vector3(0.5f * (CellColumnCount - 1) * (_cellSize.x + IntercellularSpace), 0, 0);
-        _horizontalOffset = new Vector3(_cellSize.y + IntercellularSpace, 0, 0);
-        _verticalOffset = new Vector3(0, (_cellSize.y + IntercellularSpace) / 2, 0);
-        _dataPreparer = new CardDataPreparer(CardDataKits);
-        _gameEnder = EndGameScreen.GetComponent<GameEnder>();
+        _cellSize = Vector3.Scale(_cellPrefab.GetComponent<BoxCollider2D>().size, _cellPrefab.GetComponent<Transform>().localScale);
+        _horizontalStartPoint = new Vector3(0.5f * (_cellColumnCount - 1) * (_cellSize.x + _intercellularSpace), 0, 0);
+        _horizontalOffset = new Vector3(_cellSize.y + _intercellularSpace, 0, 0);
+        _verticalOffset = new Vector3(0, (_cellSize.y + _intercellularSpace) / 2, 0);
+        _dataPreparer = new CardDataPreparer(_cardDataKits);
+        _gameEnder = _endGameScreen.GetComponent<GameEnder>();
     }
 
     void CreateCell(Vector3 position)
     {
-        GameObject newCell = Instantiate(CellPrefab, position, Quaternion.identity);
+        GameObject newCell = Instantiate(_cellPrefab, position, Quaternion.identity);
         if (_levelIteration == 1)
             newCell.GetComponent<Cell>().DoBounce(_cellSpawnTime);
         _cellsList.Add(newCell);
@@ -57,9 +57,9 @@ public class GameField : MonoBehaviour
 
         for (int i = 0; i < _cellsList.Count; i++)
         {
-            string tempIdentifier = CardDataKits.CardDataKits[tempChosenCardDataKit].CardData[tempIdentifiersList[i]].Identifier;
-            Sprite tempSprite = CardDataKits.CardDataKits[tempChosenCardDataKit].CardData[tempIdentifiersList[i]].Sprite;
-            float tempRotationAngle = CardDataKits.CardDataKits[tempChosenCardDataKit].CardData[tempIdentifiersList[i]].RotationAngle;
+            string tempIdentifier = _cardDataKits.CardDataKits[tempChosenCardDataKit].CardData[tempIdentifiersList[i]].Identifier;
+            Sprite tempSprite = _cardDataKits.CardDataKits[tempChosenCardDataKit].CardData[tempIdentifiersList[i]].Sprite;
+            float tempRotationAngle = _cardDataKits.CardDataKits[tempChosenCardDataKit].CardData[tempIdentifiersList[i]].RotationAngle;
             
             _cellsList[i].GetComponent<Cell>().SetCellParameters(tempIdentifier, tempSprite, tempRotationAngle);
         }
@@ -87,18 +87,18 @@ public class GameField : MonoBehaviour
 
     void CreateLevel()
     {
-        _dataPreparer.CreateLevelData(_levelIteration * CellColumnCount);
+        _dataPreparer.CreateLevelData(_levelIteration * _cellColumnCount);
         _curentCardIdentifier = _dataPreparer.GetChosenCardType();
 
         int tempChosenCardDataKit = _dataPreparer.GetChosenCardDataKit();
-        UITaskText.GetComponent<UITaskText>().UpdateTaskText(_curentCardIdentifier);
+        _uiTaskText.GetComponent<UITaskText>().UpdateTaskText(_curentCardIdentifier);
 
         CreateCellColumn();
     }
 
     void CreateCellLine()
     {
-        for (int i = 0; i < CellColumnCount; i++)
+        for (int i = 0; i < _cellColumnCount; i++)
         {
             CreateCell(_horizontalStartPoint - Vector3.Scale(_horizontalOffset, new Vector3(i, 0, 0)) - _verticalOffset * (_levelIteration - 1));
         }
@@ -123,13 +123,13 @@ public class GameField : MonoBehaviour
 
     public void ChangeLevelÑomplexity()
     {
-        if (_levelIteration > CellLineCount)
+        if (_levelIteration > _cellLineCount)
         {
             foreach (GameObject Cell in _cellsList)
             {
                 Destroy(Cell.GetComponent<BoxCollider2D>());
             }
-            RestartButton.GetComponent<RestartButton>().SetButtonActivity(true);
+            _restartButton.GetComponent<RestartButton>().SetButtonActivity(true);
             _gameEnder.ShowEndGameScreen();
         }
         else
