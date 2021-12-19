@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class FadeAnimator : MonoBehaviour
 {
-    [SerializeField][Range(0f, 5f)]
+    [Range(0f, 5f)]
     public float FadeTime;
 
     Graphic _fadingObject;

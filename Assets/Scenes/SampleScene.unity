@@ -395,7 +395,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ced966c5439b394419ce15d25e8480cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameField: {fileID: 1718596511}
+  _gameField: {fileID: 1718596511}
 --- !u!4 &558010675
 Transform:
   m_ObjectHideFlags: 0
@@ -844,7 +844,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gameField: {fileID: 1718596511}
-  _taskText: {fileID: 967678873}
+  _taskText: {fileID: 967678879}
 --- !u!4 &1014059912
 Transform:
   m_ObjectHideFlags: 0

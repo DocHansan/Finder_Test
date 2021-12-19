@@ -6,18 +6,11 @@ public class GameStarter : MonoBehaviour
     [SerializeField]
     GameField _gameField;
     [SerializeField]
-    GameObject _taskText;
-
-    FadeAnimator _fadeAnimator;
-
-    void Awake()
-    {
-        _fadeAnimator = _taskText.GetComponent<FadeAnimator>();
-    }
+    FadeAnimator _taskText;
 
     void Start()
     {
-        _fadeAnimator.Fade(true);
+        _taskText.Fade(true);
         _gameField.ResetField();
     }
 }
