@@ -3,15 +3,14 @@ using UnityEngine.UI;
 
 public class GameEnder : MonoBehaviour
 {
-    FadeAnimator _fadeAnimator;
+    [SerializeField]
+    RestartButton _restartButton;
+    [SerializeField]
+    FadeAnimator _endGameScreenFadeAnimator;
 
-    void Awake()
+    public void EndGame()
     {
-        _fadeAnimator = GetComponent<FadeAnimator>();
-    }
-
-    public void ShowEndGameScreen()
-    {
-        _fadeAnimator.Fade(true);
+        _endGameScreenFadeAnimator.Fade(true);
+        _restartButton.SetButtonActivity(true);
     }
 }

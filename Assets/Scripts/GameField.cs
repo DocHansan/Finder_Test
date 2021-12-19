@@ -15,22 +15,19 @@ public class GameField : MonoBehaviour
     [SerializeField][Range(0f, 2f)]
     float _intercellularSpace = 0.2f;
     [SerializeField]
-    Text _uiTaskText;
+    UITaskText _uiTaskText;
     [SerializeField]
-    Button _restartButton;
-    [SerializeField]
-    GameObject _endGameScreen;
+    GameEnder _gameEnder;
 
     Vector3 _horizontalStartPoint;
     Vector3 _horizontalOffset;
     Vector3 _verticalOffset;
     Vector3 _cellSize;
     CardDataPreparer _dataPreparer;
-    int _levelIteration;
+    int _levelIteration = 1;
     string _curentCardIdentifier;
     List<GameObject> _cellsList;
-    float _cellSpawnTime = 0.5f;
-    GameEnder _gameEnder;
+    CellSpawner _cellSpawner;
 
     void Awake()
     {
@@ -39,15 +36,36 @@ public class GameField : MonoBehaviour
         _horizontalOffset = new Vector3(_cellSize.y + _intercellularSpace, 0, 0);
         _verticalOffset = new Vector3(0, (_cellSize.y + _intercellularSpace) / 2, 0);
         _dataPreparer = new CardDataPreparer(_cardDataKits);
-        _gameEnder = _endGameScreen.GetComponent<GameEnder>();
+        _cellSpawner = GetComponent<CellSpawner>();
+        _cellsList = new List<GameObject>();
     }
 
-    void CreateCell(Vector3 position)
+    public void CreateLevel()
     {
-        GameObject newCell = Instantiate(_cellPrefab, position, Quaternion.identity);
-        if (_levelIteration == 1)
-            newCell.GetComponent<Cell>().DoBounce(_cellSpawnTime);
-        _cellsList.Add(newCell);
+        _dataPreparer.CreateLevelData(_levelIteration * _cellColumnCount);
+        _curentCardIdentifier = _dataPreparer.GetChosenCardType();
+        _uiTaskText.UpdateTaskText(_curentCardIdentifier);
+        CreateCellColumn();
+    }
+
+    void CreateCellColumn()
+    {
+        foreach (GameObject Cell in _cellsList)
+        {
+            Cell.transform.position += _verticalOffset;
+        }
+        CreateCellLine();
+        _levelIteration++;
+    }
+
+    void CreateCellLine()
+    {
+        for (int i = 0; i < _cellColumnCount; i++)
+        {
+            Vector3 newCellPosition = _horizontalStartPoint - Vector3.Scale(_horizontalOffset, new Vector3(i, 0, 0)) - _verticalOffset * (_levelIteration - 1);
+            _cellsList.Add(_cellSpawner.SpawnCell(_cellPrefab, newCellPosition, _levelIteration == 1));
+        }
+        FillCells();
     }
 
     void FillCells()
@@ -60,60 +78,9 @@ public class GameField : MonoBehaviour
             string tempIdentifier = _cardDataKits.CardDataKits[tempChosenCardDataKit].CardData[tempIdentifiersList[i]].Identifier;
             Sprite tempSprite = _cardDataKits.CardDataKits[tempChosenCardDataKit].CardData[tempIdentifiersList[i]].Sprite;
             float tempRotationAngle = _cardDataKits.CardDataKits[tempChosenCardDataKit].CardData[tempIdentifiersList[i]].RotationAngle;
-            
+
             _cellsList[i].GetComponent<Cell>().SetCellParameters(tempIdentifier, tempSprite, tempRotationAngle);
         }
-    }
-
-    public void ResetField()
-    {
-        _levelIteration = 1;
-        _cellsList = new List<GameObject>();
-
-        DestroyCells();
-
-        _dataPreparer.ResetParameters();
-
-        CreateLevel();
-    }
-
-    void DestroyCells()
-    {
-        foreach (GameObject Cell in GameObject.FindGameObjectsWithTag("Cell"))
-        {
-            Destroy(Cell);
-        }
-    }
-
-    void CreateLevel()
-    {
-        _dataPreparer.CreateLevelData(_levelIteration * _cellColumnCount);
-        _curentCardIdentifier = _dataPreparer.GetChosenCardType();
-
-        int tempChosenCardDataKit = _dataPreparer.GetChosenCardDataKit();
-        _uiTaskText.GetComponent<UITaskText>().UpdateTaskText(_curentCardIdentifier);
-
-        CreateCellColumn();
-    }
-
-    void CreateCellLine()
-    {
-        for (int i = 0; i < _cellColumnCount; i++)
-        {
-            CreateCell(_horizontalStartPoint - Vector3.Scale(_horizontalOffset, new Vector3(i, 0, 0)) - _verticalOffset * (_levelIteration - 1));
-        }
-        FillCells();
-    }
-
-    void CreateCellColumn()
-    {
-        foreach (GameObject cellPrefab in GameObject.FindGameObjectsWithTag("Cell"))
-        {
-            cellPrefab.transform.position += _verticalOffset;
-        }
-        CreateCellLine();
-
-        _levelIteration++;
     }
 
     public string GetCardIdentifier()
@@ -129,8 +96,7 @@ public class GameField : MonoBehaviour
             {
                 Destroy(Cell.GetComponent<BoxCollider2D>());
             }
-            _restartButton.GetComponent<RestartButton>().SetButtonActivity(true);
-            _gameEnder.ShowEndGameScreen();
+            _gameEnder.EndGame();
         }
         else
             CreateLevel();

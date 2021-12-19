@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class SceneReloader : MonoBehaviour
 {
     [SerializeField]
-    public Text LoadProgress;
+    Text _loadProgressText;
 
     FadeAnimator _fadeAnimator;
     float _fadeTime;
@@ -37,10 +37,10 @@ public class SceneReloader : MonoBehaviour
         while (passedTime < _loadTime)
         {
             passedTime += Time.deltaTime / _loadTime;
-            LoadProgress.text = Mathf.Round(passedTime / _loadTime * 100) + "%";
+            _loadProgressText.text = Mathf.Round(passedTime / _loadTime * 100) + "%";
             yield return null;
         }
-        LoadProgress.text = "";
+        _loadProgressText.text = "";
         StartCoroutine(ReloadScene());
     }
 

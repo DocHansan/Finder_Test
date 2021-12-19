@@ -11,6 +11,6 @@ public class GameStarter : MonoBehaviour
     void Start()
     {
         _taskText.Fade(true);
-        _gameField.ResetField();
+        _gameField.CreateLevel();
     }
 }
