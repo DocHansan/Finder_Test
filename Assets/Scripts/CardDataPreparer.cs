@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,7 +7,7 @@ public class CardDataPreparer
     int _chosenCardDataKit;
     int _chosenCard;
     List<int> _cardDataIndexes;
-    List<int>[] _previousChosenCards;
+    List<string>[] _previousChosenCards;
 
     public CardDataPreparer(AllCardData InputCardData)
     {
@@ -21,9 +20,7 @@ public class CardDataPreparer
     {
         _chosenCardDataKit = Random.Range(0, _cardDataKits.CardDataKits.Length);
         _chosenCard = Random.Range(0, lengthResultList);
-
         _cardDataIndexes = new List<int>();
-        List<int> tempIndexes = new List<int>();
 
         if (CheckPossibilityToUseDataKit(lengthResultList))
         {
@@ -34,17 +31,18 @@ public class CardDataPreparer
         while (_cardDataIndexes.Count < lengthResultList)
         {
             int tempIndex = Random.Range(0, _cardDataKits.CardDataKits[_chosenCardDataKit].CardData.Length);
-            
-            if (tempIndexes.Contains(tempIndex) || _previousChosenCards[_chosenCardDataKit].Contains(tempIndex)) continue;
+            string tempCard = _cardDataKits.CardDataKits[_chosenCardDataKit].CardData[tempIndex].Identifier;
+
+
+            if (_cardDataIndexes.Contains(tempIndex) || _previousChosenCards[_chosenCardDataKit].Contains(tempCard)) continue;
             else
             {
-                tempIndexes.Add(tempIndex);
                 _cardDataIndexes.Add(tempIndex);
             }
         }
 
         _chosenCard = _cardDataIndexes[_chosenCard];
-        _previousChosenCards[_chosenCardDataKit].Add(_chosenCard);
+        _previousChosenCards[_chosenCardDataKit].Add(_cardDataKits.CardDataKits[_chosenCardDataKit].CardData[_chosenCard].Identifier);
     }
 
     bool CheckPossibilityToUseDataKit(int lengthResultList)
@@ -62,18 +60,18 @@ public class CardDataPreparer
         return _chosenCardDataKit;
     }
 
-    public int GetChosenCardType()
+    public string GetChosenCardType()
     {
-        return _chosenCard;
+        return _cardDataKits.CardDataKits[_chosenCardDataKit].CardData[_chosenCard].Identifier;
     }
 
     public void ResetParameters()
     {
-        _previousChosenCards = new List<int>[_cardDataKits.CardDataKits.Length];
+        _previousChosenCards = new List<string>[_cardDataKits.CardDataKits.Length];
 
         for (int i = 0; i < _previousChosenCards.Length; i++)
         {
-            _previousChosenCards[i] = new List<int>();
+            _previousChosenCards[i] = new List<string>();
         }
     }
 }

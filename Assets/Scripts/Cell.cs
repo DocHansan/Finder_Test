@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using DG.Tweening;
 
 public class Cell : MonoBehaviour
@@ -9,7 +6,7 @@ public class Cell : MonoBehaviour
     [SerializeField]
     public GameObject CardSprite;
 
-    int _identifier;
+    string _identifier;
     float _rotationAngle;
     Sprite _cellSprite;
     Vector3 _cellSize;
@@ -26,7 +23,7 @@ public class Cell : MonoBehaviour
         GameObject.Find("CardChecker").GetComponent<CardChecker>().CompareCardIdentifiers(_identifier, this);
     }
 
-    public void SetCellParameters(int identifier, Sprite sprite, float rotationAngle)
+    public void SetCellParameters(string identifier, Sprite sprite, float rotationAngle)
     {
         _identifier = identifier;
         _cellSprite = sprite;

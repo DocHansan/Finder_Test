@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -21,6 +20,8 @@ public class GameField : MonoBehaviour
     public Button RestartButton;
     [SerializeField]
     public FadeAnimator FadeAnimator;
+    [SerializeField]
+    public GameObject EndGameScreen;
 
     Vector3 _horizontalStartPoint;
     Vector3 _horizontalOffset;
@@ -28,9 +29,10 @@ public class GameField : MonoBehaviour
     Vector3 _cellSize;
     CardDataPreparer _dataPreparer;
     int _levelIteration;
-    int _curentCardIdentifier;
+    string _curentCardIdentifier;
     List<GameObject> _cellsList;
     float _cellSpawnTime = 0.5f;
+    GameEnder _gameEnder;
 
     void Awake()
     {
@@ -38,8 +40,8 @@ public class GameField : MonoBehaviour
         _horizontalStartPoint = new Vector3(0.5f * (CellColumnCount - 1) * (_cellSize.x + IntercellularSpace), 0, 0);
         _horizontalOffset = new Vector3(_cellSize.y + IntercellularSpace, 0, 0);
         _verticalOffset = new Vector3(0, (_cellSize.y + IntercellularSpace) / 2, 0);
-
         _dataPreparer = new CardDataPreparer(CardDataKits);
+        _gameEnder = EndGameScreen.GetComponent<GameEnder>();
     }
 
     void CreateCell(Vector3 position)
@@ -57,7 +59,7 @@ public class GameField : MonoBehaviour
 
         for (int i = 0; i < _cellsList.Count; i++)
         {
-            int tempIdentifier = tempIdentifiersList[i];
+            string tempIdentifier = CardDataKits.CardDataKits[tempChosenCardDataKit].CardData[tempIdentifiersList[i]].Identifier;
             Sprite tempSprite = CardDataKits.CardDataKits[tempChosenCardDataKit].CardData[tempIdentifiersList[i]].Sprite;
             float tempRotationAngle = CardDataKits.CardDataKits[tempChosenCardDataKit].CardData[tempIdentifiersList[i]].RotationAngle;
             
@@ -91,7 +93,7 @@ public class GameField : MonoBehaviour
         _curentCardIdentifier = _dataPreparer.GetChosenCardType();
 
         int tempChosenCardDataKit = _dataPreparer.GetChosenCardDataKit();
-        UITaskText.GetComponent<UITaskText>().UpdateTaskText(CardDataKits.CardDataKits[tempChosenCardDataKit].CardData[_curentCardIdentifier].Identifier);
+        UITaskText.GetComponent<UITaskText>().UpdateTaskText(_curentCardIdentifier);
 
         CreateCellColumn();
     }
@@ -116,7 +118,7 @@ public class GameField : MonoBehaviour
         _levelIteration++;
     }
 
-    public int GetCardIdentifier()
+    public string GetCardIdentifier()
     {
         return _curentCardIdentifier;
     }
@@ -130,6 +132,7 @@ public class GameField : MonoBehaviour
                 Destroy(Cell.GetComponent<BoxCollider2D>());
             }
             RestartButton.GetComponent<RestartButton>().ShowRestartButton();
+            _gameEnder.ShowEndGameScreen(true);
         }
         else
             CreateLevel();

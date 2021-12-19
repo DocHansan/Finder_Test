@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CardChecker : MonoBehaviour
@@ -13,7 +11,7 @@ public class CardChecker : MonoBehaviour
     float _shakeCardAnimTime = 0.5f;
     bool _isRightCardCklicked = false;
 
-    public void CompareCardIdentifiers(int klickedCellIdentifier, Cell cell)
+    public void CompareCardIdentifiers(string klickedCellIdentifier, Cell cell)
     {
         if (klickedCellIdentifier == GameField.GetCardIdentifier())
         {
@@ -21,7 +19,7 @@ public class CardChecker : MonoBehaviour
             if (!_isRightCardCklicked)
             {
                 _isRightCardCklicked = true;
-                Invoke("ChangeLevel", _bounceCardAnimTime);
+                Invoke(nameof(ChangeLevel), _bounceCardAnimTime);
             }
             
         }

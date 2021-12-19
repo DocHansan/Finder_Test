@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,6 +12,15 @@ public class GameStarter : MonoBehaviour
     [SerializeField]
     public FadeAnimator FadeAnimator;
 
+    RestartButton _restartButton;
+    GameField _gameField;
+
+    void Awake()
+    {
+        _restartButton = RestartButton.GetComponent<RestartButton>();
+        _gameField = GameField.GetComponent<GameField>();
+    }
+
     void Start()
     {
         StartGame();
@@ -21,8 +28,8 @@ public class GameStarter : MonoBehaviour
 
     public void StartGame()
     {
-        RestartButton.GetComponent<RestartButton>().HideRestartButton();
-        FadeAnimator.FadeIn(FadeAnimator.FadeTime, TaskText);
-        GameField.GetComponent<GameField>().ResetField();
+        _restartButton.HideRestartButton();
+        FadeAnimator.Fade(FadeAnimator.FadeTime, TaskText, true);
+        _gameField.ResetField();
     }
 }
