@@ -19,8 +19,6 @@ public class GameField : MonoBehaviour
     [SerializeField]
     public Button RestartButton;
     [SerializeField]
-    public FadeAnimator FadeAnimator;
-    [SerializeField]
     public GameObject EndGameScreen;
 
     Vector3 _horizontalStartPoint;
@@ -131,8 +129,8 @@ public class GameField : MonoBehaviour
             {
                 Destroy(Cell.GetComponent<BoxCollider2D>());
             }
-            RestartButton.GetComponent<RestartButton>().ShowRestartButton();
-            _gameEnder.ShowEndGameScreen(true);
+            RestartButton.GetComponent<RestartButton>().SetButtonActivity(true);
+            _gameEnder.ShowEndGameScreen();
         }
         else
             CreateLevel();

@@ -5,7 +5,6 @@ public class GameEnder : MonoBehaviour
 {
     FadeAnimator _fadeAnimator;
     Image _endScreenImage;
-    float _fadeTime = 1f;
 
     void Awake()
     {
@@ -13,8 +12,8 @@ public class GameEnder : MonoBehaviour
         _endScreenImage = GetComponent<Image>();
     }
 
-    public void ShowEndGameScreen(bool isNeedFadeIn)
+    public void ShowEndGameScreen()
     {
-        _fadeAnimator.Fade(_fadeTime, _endScreenImage, isNeedFadeIn);
+        _fadeAnimator.Fade(_endScreenImage, true);
     }
 }

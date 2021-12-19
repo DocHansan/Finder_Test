@@ -4,8 +4,6 @@ public class CardChecker : MonoBehaviour
 {
     [SerializeField]
     public GameField GameField;
-    [SerializeField]
-    public GameObject Cell;
 
     float _bounceCardAnimTime = 0.5f;
     float _shakeCardAnimTime = 0.5f;

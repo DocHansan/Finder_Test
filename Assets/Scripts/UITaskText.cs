@@ -3,8 +3,15 @@ using UnityEngine.UI;
 
 public class UITaskText : MonoBehaviour
 {
+    Text _text;
+
+    void Awake()
+    {
+        _text = GetComponent<Text>();
+    }
+
     public void UpdateTaskText(string currentObject)
     {
-        GetComponent<Text>().text = "Find " + currentObject;
+        _text.text = "Find " + currentObject;
     }
 }

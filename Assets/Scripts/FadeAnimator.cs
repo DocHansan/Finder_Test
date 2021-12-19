@@ -7,9 +7,9 @@ public class FadeAnimator : MonoBehaviour
     [SerializeField][Range(0f, 5f)]
     public float FadeTime;
 
-    public void Fade(float time, Graphic fadingObject, bool isNeedFadeIn)
+    public void Fade(Graphic fadingObject, bool isNeedFadeIn)
     {
-        StartCoroutine(MakeFade(time, fadingObject, isNeedFadeIn));
+        StartCoroutine(MakeFade(FadeTime, fadingObject, isNeedFadeIn));
     }
 
     IEnumerator MakeFade(float time, Graphic fadingObject, bool isNeedFadeIn)

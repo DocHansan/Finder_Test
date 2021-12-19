@@ -142,7 +142,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &447361089
 RectTransform:
   m_ObjectHideFlags: 0
@@ -222,8 +222,8 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 447361093}
         m_TargetAssemblyTypeName: RestartButton, Assembly-CSharp
-        m_MethodName: HideRestartButton
-        m_Mode: 1
+        m_MethodName: SetButtonActivity
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -396,7 +396,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameField: {fileID: 1718596511}
-  Cell: {fileID: 2893313092088491705, guid: bc4f838b1202f93449d2e0d6364af94a, type: 3}
 --- !u!4 &558010675
 Transform:
   m_ObjectHideFlags: 0
@@ -619,6 +618,7 @@ GameObject:
   - component: {fileID: 967678875}
   - component: {fileID: 967678877}
   - component: {fileID: 967678878}
+  - component: {fileID: 967678879}
   m_Layer: 5
   m_Name: TaskText
   m_TagString: Untagged
@@ -721,6 +721,19 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: -3
   m_TargetDisplay: 0
+--- !u!114 &967678879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967678873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21b0954f47f2e4c4f8922c134c4869c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FadeTime: 1
 --- !u!1 &969286019
 GameObject:
   m_ObjectHideFlags: 0
@@ -831,9 +844,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameField: {fileID: 1718596511}
-  RestartButton: {fileID: 447361090}
-  TaskText: {fileID: 967678875}
-  FadeAnimator: {fileID: 1361288263}
+  TaskText: {fileID: 967678873}
 --- !u!4 &1014059912
 Transform:
   m_ObjectHideFlags: 0
@@ -861,8 +872,8 @@ GameObject:
   - component: {fileID: 1055443083}
   - component: {fileID: 1055443082}
   - component: {fileID: 1055443081}
-  - component: {fileID: 1055443080}
   - component: {fileID: 1055443079}
+  - component: {fileID: 1055443084}
   m_Layer: 5
   m_Name: LoadGameScreen
   m_TagString: Untagged
@@ -904,19 +915,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LoadProgress: {fileID: 586678353}
---- !u!114 &1055443080
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1055443077}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21b0954f47f2e4c4f8922c134c4869c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FadeTime: 0.5
 --- !u!223 &1055443081
 Canvas:
   m_ObjectHideFlags: 0
@@ -976,6 +974,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1055443077}
   m_CullTransparentMesh: 1
+--- !u!114 &1055443084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1055443077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21b0954f47f2e4c4f8922c134c4869c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FadeTime: 1
 --- !u!1 &1081956662
 GameObject:
   m_ObjectHideFlags: 0
@@ -1100,7 +1111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21b0954f47f2e4c4f8922c134c4869c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FadeTime: 0.5
+  FadeTime: 1
 --- !u!1 &1361288262
 GameObject:
   m_ObjectHideFlags: 0
@@ -1301,5 +1312,4 @@ MonoBehaviour:
   IntercellularSpace: 0.2
   UITaskText: {fileID: 967678875}
   RestartButton: {fileID: 447361090}
-  FadeAnimator: {fileID: 1361288263}
   EndGameScreen: {fileID: 1081956662}
