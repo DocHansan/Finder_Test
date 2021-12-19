@@ -10,7 +10,7 @@ public class GameStarter : MonoBehaviour
 
     void Start()
     {
-        _taskText.Fade(true);
+        _taskText.FadeIn();
         _gameField.CreateLevel();
     }
 }

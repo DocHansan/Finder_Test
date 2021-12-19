@@ -14,32 +14,20 @@ public class FadeAnimator : MonoBehaviour
         _fadingObject = GetComponent<Graphic>();
     }
 
-    public void Fade(bool isNeedFadeIn)
+    public void FadeIn()
     {
-        StartCoroutine(MakeFade(FadeTime, isNeedFadeIn));
+        StartCoroutine(MakeFade());
     }
 
-    IEnumerator MakeFade(float time, bool isNeedFadeIn)
+    IEnumerator MakeFade()
     {
-        _fadingObject.color = ChangeAlpha(_fadingObject.color, isNeedFadeIn ? 0 : 1);
-
-        if (isNeedFadeIn)
+        _fadingObject.color = ChangeAlpha(_fadingObject.color, 0);
+        while (_fadingObject.color.a < 1.0f)
         {
-            while (_fadingObject.color.a < 1.0f)
-            {
-                _fadingObject.color = AddAlpha(_fadingObject.color, Time.deltaTime / time);
-                yield return null;
-            }
+            _fadingObject.color = AddAlpha(_fadingObject.color, Time.deltaTime / FadeTime);
+            yield return null;
         }
 
-        else
-        {
-            while (_fadingObject.color.a > 0.0f)
-            {
-                _fadingObject.color = AddAlpha(_fadingObject.color, -Time.deltaTime / time);
-                yield return null;
-            }
-        }
     }
 
     Color AddAlpha(Color changingColor, float alphaOffset)

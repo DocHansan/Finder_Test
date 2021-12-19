@@ -19,6 +19,6 @@ public class UITaskText : MonoBehaviour
 
     public void Fade(bool isNeedFadeIn)
     {
-        _fadeAnimator.Fade(isNeedFadeIn);
+        _fadeAnimator.FadeIn();
     }
 }

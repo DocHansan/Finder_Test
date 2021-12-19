@@ -10,7 +10,7 @@ public class GameEnder : MonoBehaviour
 
     public void EndGame()
     {
-        _endGameScreenFadeAnimator.Fade(true);
+        _endGameScreenFadeAnimator.FadeIn();
         _restartButton.SetButtonActivity(true);
     }
 }

@@ -25,7 +25,7 @@ public class SceneReloader : MonoBehaviour
 
     IEnumerator MakeFadeEndScreen()
     {
-        _fadeAnimator.Fade(true);
+        _fadeAnimator.FadeIn();
         yield return new WaitForSeconds(_fadeTime);
         StartCoroutine(UpdateLoadProgress());
         
