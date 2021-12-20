@@ -11,17 +11,16 @@ public class CardChecker : MonoBehaviour
 
     public void CompareCardIdentifiers(string identifier, CellAnimator cellAnimator)
     {
+        if (_isRightCardClicked)
+            return;
         if (identifier != _gameField.CurentCardIdentifier)
         {
             cellAnimator.ShakeCard();
             return;
         }
-
+        _isRightCardClicked = true;
         cellAnimator.BounceCard();
         cellAnimator.MakeStars();
-        if (_isRightCardClicked)
-            return;
-        _isRightCardClicked = true;
         Invoke(nameof(ChangeLevel), _changeDifficultyDelay);
     }
 
