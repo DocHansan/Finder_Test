@@ -7,7 +7,7 @@ public class CardDataPreparer
     int _chosenCardDataKit;
     int _chosenCard;
     List<int> _cardDataIndexes;
-    int _cardDataKitsLenth;
+    readonly int _cardDataKitsLenth;
     readonly List<string>[] _previousChosenCards;
 
     public List<int> GetLevelCardIndexes => _cardDataIndexes;
@@ -54,7 +54,7 @@ public class CardDataPreparer
 
     List<int> GetValidDataKitsIndexes(int lengthResultList)
     {
-        List<int> validDataKitsIndexes = new List<int>();
+        List<int> validDataKitsIndexes = new();
 
         for (int i = 0; i < _cardDataKitsLenth; i++)
         {
