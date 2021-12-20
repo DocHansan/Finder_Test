@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public class GameStarter : MonoBehaviour
 {
@@ -11,6 +10,6 @@ public class GameStarter : MonoBehaviour
     void Start()
     {
         _taskText.FadeIn();
-        _gameField.CreateLevel();
+        _gameField.ChangeLevel—omplexity();
     }
 }

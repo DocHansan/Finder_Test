@@ -7,7 +7,7 @@ public class CardDataPreparer
     int _chosenCardDataKit;
     int _chosenCard;
     List<int> _cardDataIndexes;
-    readonly int _cardDataKitsLenth;
+    readonly int _cardDataKitsLength;
     readonly List<string>[] _previousChosenCards;
 
     public List<int> GetLevelCardIndexes => _cardDataIndexes;
@@ -17,18 +17,18 @@ public class CardDataPreparer
     public CardDataPreparer(AllCardData InputCardData)
     {
         _cardDataKits = InputCardData.CardDataKits;
-        _cardDataKitsLenth = _cardDataKits.Length;
+        _cardDataKitsLength = _cardDataKits.Length;
 
-        _previousChosenCards = new List<string>[_cardDataKitsLenth];
+        _previousChosenCards = new List<string>[_cardDataKitsLength];
         for (int i = 0; i < _previousChosenCards.Length; i++)
         {
             _previousChosenCards[i] = new List<string>();
         }
     }
 
-    public bool CreateLevelData(int lengthResultList)
+    public bool CreateLevelData(int resultListLength)
     {
-        List<int> validDataKitsIndexes = GetValidDataKitsIndexes(lengthResultList);
+        List<int> validDataKitsIndexes = GetValidDataKitsIndexes(resultListLength);
         int validDataKitsCount = validDataKitsIndexes.Count;
 
         if (validDataKitsCount == 0)
@@ -38,29 +38,30 @@ public class CardDataPreparer
         _cardDataIndexes = new List<int>();
         CardData[] cardData = _cardDataKits[_chosenCardDataKit].CardData;
 
-        while (_cardDataIndexes.Count < lengthResultList)
+        while (_cardDataIndexes.Count < resultListLength)
         {
             int tempIndex = Random.Range(0, cardData.Length);
 
-            if (_cardDataIndexes.Contains(tempIndex))
-                continue;
-
-            _cardDataIndexes.Add(tempIndex);
+            if (!_cardDataIndexes.Contains(tempIndex))
+                _cardDataIndexes.Add(tempIndex);
         }
         _chosenCard = ChooseCard();
         _previousChosenCards[_chosenCardDataKit].Add(cardData[_chosenCard].Identifier);
         return true;
     }
 
-    List<int> GetValidDataKitsIndexes(int lengthResultList)
+    List<int> GetValidDataKitsIndexes(int resultListLength)
     {
         List<int> validDataKitsIndexes = new();
 
-        for (int i = 0; i < _cardDataKitsLenth; i++)
+        for (int i = 0; i < _cardDataKitsLength; i++)
         {
-            int currentCardDataLenth = _cardDataKits[i].CardData.Length;
+            int currentCardDataLength = _cardDataKits[i].CardData.Length;
+            if (currentCardDataLength < resultListLength)
+                continue;
+
             int currentPreviousChosenCardsCount = _previousChosenCards[i].Count;
-            if (currentCardDataLenth - currentPreviousChosenCardsCount > 0 && currentCardDataLenth >= lengthResultList)
+            if (currentCardDataLength - currentPreviousChosenCardsCount > 0)
                 validDataKitsIndexes.Add(i);
         }
         return validDataKitsIndexes;

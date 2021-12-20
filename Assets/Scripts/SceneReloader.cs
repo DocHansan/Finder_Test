@@ -28,7 +28,6 @@ public class SceneReloader : MonoBehaviour
         _fadeAnimator.FadeIn();
         yield return new WaitForSeconds(_fadeTime);
         StartCoroutine(UpdateLoadProgress());
-        
     }
 
     IEnumerator UpdateLoadProgress()
@@ -41,12 +40,6 @@ public class SceneReloader : MonoBehaviour
             yield return null;
         }
         _loadProgressText.text = "";
-        StartCoroutine(ReloadScene());
-    }
-
-    IEnumerator ReloadScene()
-    {
         SceneManager.LoadSceneAsync(0);
-        yield return null;
     }
 }

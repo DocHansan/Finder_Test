@@ -2,9 +2,12 @@ using UnityEngine;
 
 public class CellSpawner : MonoBehaviour
 {
-    public GameObject SpawnCell(GameObject cellPrefab, Vector3 position, bool isNeedBounce)
+    [SerializeField]
+    GameObject _cellPrefab;
+
+    public GameObject SpawnCell(Vector3 position, bool isNeedBounce)
     {
-        GameObject newCell = Instantiate(cellPrefab, position, Quaternion.identity);
+        GameObject newCell = Instantiate(_cellPrefab, position, Quaternion.identity);
         if (isNeedBounce)
             newCell.GetComponent<CellAnimator>().BounceCell();
         return newCell;

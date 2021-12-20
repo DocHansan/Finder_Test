@@ -18,8 +18,7 @@ public class Cell : MonoBehaviour
     Transform _cardSpriteTransform;
     CardChecker _cardChecker;
     string _identifier;
-    float _rotationAngle;
-    Sprite _cellSprite;
+    CellAnimator _cellAnimator;
 
     void Awake()
     {
@@ -27,26 +26,20 @@ public class Cell : MonoBehaviour
         _cardSpriteTransform = _cardSprite.GetComponent<Transform>();
         _cellSize = Vector3.Scale(gameObject.GetComponent<BoxCollider2D>().size, gameObject.GetComponent<Transform>().localScale);
         _cardSpriteSize = Vector3.Scale(CellSize, _cardSpriteTransform.localScale);
+        _cellAnimator = GetComponent<CellAnimator>();
         _cardChecker = GameObject.Find("CardChecker").GetComponent<CardChecker>();
     }
 
     void OnMouseDown()
     {
-        _cardChecker.CompareCardIdentifiers(_identifier, this);
+        _cardChecker.CompareCardIdentifiers(_identifier, _cellAnimator);
     }
 
     public void SetCellParameters(string identifier, Sprite sprite, float rotationAngle)
     {
         _identifier = identifier;
-        _cellSprite = sprite;
-        _rotationAngle = rotationAngle;
-        VisualizeSprite();
-    }
-
-    void VisualizeSprite()
-    {
-        _cardSpriteRenderer.sprite = _cellSprite;
+        _cardSpriteRenderer.sprite = sprite;
         _cardSpriteTransform.rotation = Quaternion.identity;
-        _cardSpriteTransform.Rotate(new Vector3(0, 0, -_rotationAngle));
+        _cardSpriteTransform.Rotate(new Vector3(0, 0, rotationAngle));
     }
 }

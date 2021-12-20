@@ -33,10 +33,10 @@ MonoBehaviour:
     _rotationAngle: 0
   - _identifier: 7
     _sprite: {fileID: -1750535463, guid: 10572a81ef72b21448dc47cadc2c0fb7, type: 3}
-    _rotationAngle: 90
+    _rotationAngle: -90
   - _identifier: 8
     _sprite: {fileID: 128944550, guid: 10572a81ef72b21448dc47cadc2c0fb7, type: 3}
-    _rotationAngle: 90
+    _rotationAngle: -90
   - _identifier: 9
     _sprite: {fileID: 714681317, guid: 7fc0ba9b79d2f124fb6e6374c3650fed, type: 3}
     _rotationAngle: 0

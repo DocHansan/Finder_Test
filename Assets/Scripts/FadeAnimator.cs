@@ -29,12 +29,11 @@ public class FadeAnimator : MonoBehaviour
             _fadingObject.color = AddAlpha(_fadingObject.color, Time.deltaTime / _fadeTime);
             yield return null;
         }
-
     }
 
     Color AddAlpha(Color changingColor, float alphaOffset)
     {
-        return new Color(changingColor.r, changingColor.g, changingColor.b, changingColor.a + alphaOffset);
+        return ChangeAlpha(changingColor, changingColor.a + alphaOffset);
     }
 
     Color ChangeAlpha(Color changingColor, float newAlpha)

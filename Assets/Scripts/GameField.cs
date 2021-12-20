@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class GameField : MonoBehaviour
 {
@@ -13,20 +12,20 @@ public class GameField : MonoBehaviour
     [SerializeField]
     AllCardData _cardDataKits;
     [SerializeField][Range(0f, 2f)]
-    float _intercellularSpace = 0.2f;
+    float _intercellularSpace;
     [SerializeField]
     UITaskText _uiTaskText;
     [SerializeField]
     GameEnder _gameEnder;
 
-    public string GetCardIdentifier => _curentCardIdentifier;
+    public string CurentCardIdentifier => _curentCardIdentifier;
 
     Vector3 _horizontalStartPoint;
     Vector3 _horizontalOffset;
     Vector3 _verticalOffset;
     Vector3 _cellSize;
     CardDataPreparer _dataPreparer;
-    int _levelIteration = 1;
+    int _levelIteration = 0;
     string _curentCardIdentifier;
     List<GameObject> _cellsList;
     CellSpawner _cellSpawner;
@@ -44,32 +43,31 @@ public class GameField : MonoBehaviour
 
     public void CreateLevel()
     {
-        if (_dataPreparer.CreateLevelData(_levelIteration * _cellColumnCount))
+        if (!_dataPreparer.CreateLevelData(_levelIteration * _cellColumnCount))
         {
-            _curentCardIdentifier = _dataPreparer.GetChosenCardType;
-            _uiTaskText.UpdateTaskText(_curentCardIdentifier);
-            CreateCellColumn();
+            _gameEnder.EndGame();
             return;
         }
-        _gameEnder.EndGame();
+        _curentCardIdentifier = _dataPreparer.GetChosenCardType;
+        _uiTaskText.UpdateTaskText(_curentCardIdentifier);
+        CreateNewLine();
     }
 
-    void CreateCellColumn()
+    void CreateNewLine()
     {
         foreach (GameObject Cell in _cellsList)
         {
             Cell.transform.position += _verticalOffset;
         }
-        CreateCellLine();
-        _levelIteration++;
+        CreateCells();
     }
 
-    void CreateCellLine()
+    void CreateCells()
     {
         for (int i = 0; i < _cellColumnCount; i++)
         {
             Vector3 newCellPosition = _horizontalStartPoint - Vector3.Scale(_horizontalOffset, new Vector3(i, 0, 0)) - _verticalOffset * (_levelIteration - 1);
-            _cellsList.Add(_cellSpawner.SpawnCell(_cellPrefab, newCellPosition, _levelIteration == 1));
+            _cellsList.Add(_cellSpawner.SpawnCell(newCellPosition, _levelIteration == 1));
         }
         FillCells();
     }
@@ -81,9 +79,10 @@ public class GameField : MonoBehaviour
 
         for (int i = 0; i < _cellsList.Count; i++)
         {
-            string tempIdentifier = _cardDataKits.CardDataKits[tempChosenCardDataKit].CardData[tempIdentifiersList[i]].Identifier;
-            Sprite tempSprite = _cardDataKits.CardDataKits[tempChosenCardDataKit].CardData[tempIdentifiersList[i]].Sprite;
-            float tempRotationAngle = _cardDataKits.CardDataKits[tempChosenCardDataKit].CardData[tempIdentifiersList[i]].RotationAngle;
+            CardData cardData = _cardDataKits.CardDataKits[tempChosenCardDataKit].CardData[tempIdentifiersList[i]];
+            string tempIdentifier = cardData.Identifier;
+            Sprite tempSprite = cardData.Sprite;
+            float tempRotationAngle = cardData.RotationAngle;
 
             _cellsList[i].GetComponent<Cell>().SetCellParameters(tempIdentifier, tempSprite, tempRotationAngle);
         }
@@ -91,8 +90,9 @@ public class GameField : MonoBehaviour
 
     public void ChangeLevel—omplexity()
     {
-        if (_levelIteration <= _cellLineCount)
+        if (_levelIteration < _cellLineCount)
         {
+            _levelIteration++;
             CreateLevel();
             return;
         }

@@ -9,11 +9,9 @@ public class CardChecker : MonoBehaviour
 
     bool _isRightCardClicked = false;
 
-    public void CompareCardIdentifiers(string clickedCellIdentifier, Cell cell)
+    public void CompareCardIdentifiers(string identifier, CellAnimator cellAnimator)
     {
-        CellAnimator cellAnimator = cell.GetComponent<CellAnimator>();
-
-        if (clickedCellIdentifier != _gameField.GetCardIdentifier)
+        if (identifier != _gameField.CurentCardIdentifier)
         {
             cellAnimator.ShakeCard();
             return;
