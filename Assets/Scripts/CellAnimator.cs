@@ -12,30 +12,37 @@ public class CellAnimator : MonoBehaviour
 
     Vector3 _cellSize;
     Vector3 _cardSpriteSize;
-    GameObject _cardGameObject;
+    Transform _cardGameObject;
+    Transform _cellGameObject;
 
     void Awake()
     {
-        _cellSize = gameObject.GetComponent<Cell>().CellSize;
-        _cardSpriteSize = gameObject.GetComponent<Cell>().CardSpriteSize;
-        _cardGameObject = gameObject.transform.GetChild(0).gameObject;
+        Cell cell = gameObject.GetComponent<Cell>();
+        _cellSize = cell.CellSize;
+        _cardSpriteSize = cell.CardSpriteSize;
+        _cardGameObject = gameObject.transform;
+        _cellGameObject = _cardGameObject.GetChild(0).gameObject.transform;
     }
 
-    public void Bounce()
+    public void BounceCell()
     {
-        gameObject.transform.DORewind();
-        gameObject.transform.DOPunchScale(punch: _cellSize / 4, duration: _bounceCellTime, vibrato: 8);
+        Bounce(_cardGameObject, _cellSize / 4, _bounceCellTime, 8);
     }
 
     public void BounceCard()
     {
-        _cardGameObject.transform.DORewind();
-        _cardGameObject.transform.DOPunchScale(punch: _cardSpriteSize / 4, duration: _bounceCardTime, vibrato: 8);
+        Bounce(_cellGameObject, _cardSpriteSize / 4, _bounceCardTime, 8);
     }
 
     public void ShakeCard()
     {
-        _cardGameObject.transform.DORewind();
-        _cardGameObject.transform.DOShakePosition(_shakeCardTime, strength: _cardSpriteSize / 3, vibrato: 14, randomness: 60);
+        _cellGameObject.DORewind();
+        _cellGameObject.DOShakePosition(_shakeCardTime, _cardSpriteSize / 3, 14, 60);
+    }
+
+    void Bounce(Transform transform, Vector3 punch, float duration, int vibratio)
+    {
+        transform.DORewind();
+        transform.DOPunchScale(punch, duration, vibratio);
     }
 }

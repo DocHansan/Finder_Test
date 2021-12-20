@@ -7,30 +7,28 @@ public class CardChecker : MonoBehaviour
     [SerializeField][Range(0f, 2f)]
     float _changeDifficultyDelay;
 
-    bool _isRightCardCklicked = false;
+    bool _isRightCardClicked = false;
 
-    public void CompareCardIdentifiers(string klickedCellIdentifier, Cell cell)
+    public void CompareCardIdentifiers(string clickedCellIdentifier, Cell cell)
     {
         CellAnimator cellAnimator = cell.GetComponent<CellAnimator>();
-        if (klickedCellIdentifier == _gameField.GetCardIdentifier())
-        {
-            cellAnimator.BounceCard();
-            if (!_isRightCardCklicked)
-            {
-                _isRightCardCklicked = true;
-                Invoke(nameof(ChangeLevel), _changeDifficultyDelay);
-            }
-            
-        }
-        else
+
+        if (clickedCellIdentifier != _gameField.GetCardIdentifier)
         {
             cellAnimator.ShakeCard();
+            return;
         }
+
+        cellAnimator.BounceCard();
+        if (_isRightCardClicked)
+            return;
+        _isRightCardClicked = true;
+        Invoke(nameof(ChangeLevel), _changeDifficultyDelay);
     }
 
     void ChangeLevel()
     {
-        _isRightCardCklicked = false;
+        _isRightCardClicked = false;
         _gameField.ChangeLevel—omplexity();
     }
 }

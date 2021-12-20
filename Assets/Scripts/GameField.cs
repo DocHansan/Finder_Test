@@ -19,6 +19,8 @@ public class GameField : MonoBehaviour
     [SerializeField]
     GameEnder _gameEnder;
 
+    public string GetCardIdentifier => _curentCardIdentifier;
+
     Vector3 _horizontalStartPoint;
     Vector3 _horizontalOffset;
     Vector3 _verticalOffset;
@@ -43,7 +45,7 @@ public class GameField : MonoBehaviour
     public void CreateLevel()
     {
         _dataPreparer.CreateLevelData(_levelIteration * _cellColumnCount);
-        _curentCardIdentifier = _dataPreparer.GetChosenCardType();
+        _curentCardIdentifier = _dataPreparer.GetChosenCardType;
         _uiTaskText.UpdateTaskText(_curentCardIdentifier);
         CreateCellColumn();
     }
@@ -70,8 +72,8 @@ public class GameField : MonoBehaviour
 
     void FillCells()
     {
-        List<int> tempIdentifiersList = _dataPreparer.GetLevelCardIndexes();
-        int tempChosenCardDataKit = _dataPreparer.GetChosenCardDataKit();
+        List<int> tempIdentifiersList = _dataPreparer.GetLevelCardIndexes;
+        int tempChosenCardDataKit = _dataPreparer.GetChosenCardDataKit;
 
         for (int i = 0; i < _cellsList.Count; i++)
         {
@@ -83,22 +85,18 @@ public class GameField : MonoBehaviour
         }
     }
 
-    public string GetCardIdentifier()
-    {
-        return _curentCardIdentifier;
-    }
-
     public void ChangeLevelÑomplexity()
     {
-        if (_levelIteration > _cellLineCount)
+        if (_levelIteration <= _cellLineCount)
         {
-            foreach (GameObject Cell in _cellsList)
-            {
-                Destroy(Cell.GetComponent<BoxCollider2D>());
-            }
-            _gameEnder.EndGame();
-        }
-        else
             CreateLevel();
+            return;
+        }
+
+        foreach (GameObject Cell in _cellsList)
+        {
+            Destroy(Cell.GetComponent<BoxCollider2D>());
+        }
+        _gameEnder.EndGame();
     }
 }

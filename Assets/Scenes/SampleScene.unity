@@ -582,9 +582,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69a90bfb094a592409be1f4e924512ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CardDataKits:
-  - {fileID: 11400000, guid: 5a0f1d34090769e4db5f8950c134b93a, type: 2}
+  _cardDataKits:
   - {fileID: 11400000, guid: 587069d7322b8d648a2968a1f1f58756, type: 2}
+  - {fileID: 11400000, guid: 5a0f1d34090769e4db5f8950c134b93a, type: 2}
 --- !u!1 &917818394
 GameObject:
   m_ObjectHideFlags: 0
@@ -780,7 +780,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21b0954f47f2e4c4f8922c134c4869c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FadeTime: 1
+  _fadeTime: 0.5
 --- !u!1 &969286019
 GameObject:
   m_ObjectHideFlags: 0
@@ -1033,7 +1033,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21b0954f47f2e4c4f8922c134c4869c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FadeTime: 1
+  _fadeTime: 0.5
 --- !u!1 &1081956662
 GameObject:
   m_ObjectHideFlags: 0
@@ -1145,7 +1145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21b0954f47f2e4c4f8922c134c4869c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FadeTime: 1
+  _fadeTime: 0.5
 --- !u!1 &1660198821
 GameObject:
   m_ObjectHideFlags: 0

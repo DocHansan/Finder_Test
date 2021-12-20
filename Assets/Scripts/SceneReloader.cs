@@ -10,7 +10,7 @@ public class SceneReloader : MonoBehaviour
 
     FadeAnimator _fadeAnimator;
     float _fadeTime;
-    float _loadTime = 1f;
+    readonly float _loadTime = 1f;
 
     void Awake()
     {

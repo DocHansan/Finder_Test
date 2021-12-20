@@ -12,34 +12,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f859c7a216207a47a3723eb95eb47cb, type: 3}
   m_Name: Coolies
   m_EditorClassIdentifier: 
-  CardData:
-  - Identifier: 1
-    Sprite: {fileID: 1836695118, guid: 10572a81ef72b21448dc47cadc2c0fb7, type: 3}
-    RotationAngle: 0
-  - Identifier: 2
-    Sprite: {fileID: -2142141449, guid: 10572a81ef72b21448dc47cadc2c0fb7, type: 3}
-    RotationAngle: 0
-  - Identifier: 3
-    Sprite: {fileID: 1073292687, guid: 10572a81ef72b21448dc47cadc2c0fb7, type: 3}
-    RotationAngle: 0
-  - Identifier: 4
-    Sprite: {fileID: -442610518, guid: 10572a81ef72b21448dc47cadc2c0fb7, type: 3}
-    RotationAngle: 0
-  - Identifier: 5
-    Sprite: {fileID: 553783116, guid: 10572a81ef72b21448dc47cadc2c0fb7, type: 3}
-    RotationAngle: 0
-  - Identifier: 6
-    Sprite: {fileID: 1620434229, guid: 10572a81ef72b21448dc47cadc2c0fb7, type: 3}
-    RotationAngle: 0
-  - Identifier: 7
-    Sprite: {fileID: -1750535463, guid: 10572a81ef72b21448dc47cadc2c0fb7, type: 3}
-    RotationAngle: 90
-  - Identifier: 8
-    Sprite: {fileID: 128944550, guid: 10572a81ef72b21448dc47cadc2c0fb7, type: 3}
-    RotationAngle: 90
-  - Identifier: 9
-    Sprite: {fileID: 714681317, guid: 7fc0ba9b79d2f124fb6e6374c3650fed, type: 3}
-    RotationAngle: 0
-  - Identifier: 10
-    Sprite: {fileID: -1449349212, guid: 883f7dceb2d7c254f9666c8de78335b6, type: 3}
-    RotationAngle: 0
+  _cardData:
+  - _identifier: 1
+    _sprite: {fileID: 1836695118, guid: 10572a81ef72b21448dc47cadc2c0fb7, type: 3}
+    _rotationAngle: 0
+  - _identifier: 2
+    _sprite: {fileID: -2142141449, guid: 10572a81ef72b21448dc47cadc2c0fb7, type: 3}
+    _rotationAngle: 0
+  - _identifier: 3
+    _sprite: {fileID: 1073292687, guid: 10572a81ef72b21448dc47cadc2c0fb7, type: 3}
+    _rotationAngle: 0
+  - _identifier: 4
+    _sprite: {fileID: -442610518, guid: 10572a81ef72b21448dc47cadc2c0fb7, type: 3}
+    _rotationAngle: 0
+  - _identifier: 5
+    _sprite: {fileID: 553783116, guid: 10572a81ef72b21448dc47cadc2c0fb7, type: 3}
+    _rotationAngle: 0
+  - _identifier: 6
+    _sprite: {fileID: 1620434229, guid: 10572a81ef72b21448dc47cadc2c0fb7, type: 3}
+    _rotationAngle: 0
+  - _identifier: 7
+    _sprite: {fileID: -1750535463, guid: 10572a81ef72b21448dc47cadc2c0fb7, type: 3}
+    _rotationAngle: 90
+  - _identifier: 8
+    _sprite: {fileID: 128944550, guid: 10572a81ef72b21448dc47cadc2c0fb7, type: 3}
+    _rotationAngle: 90
+  - _identifier: 9
+    _sprite: {fileID: 714681317, guid: 7fc0ba9b79d2f124fb6e6374c3650fed, type: 3}
+    _rotationAngle: 0
+  - _identifier: 10
+    _sprite: {fileID: -1449349212, guid: 883f7dceb2d7c254f9666c8de78335b6, type: 3}
+    _rotationAngle: 0

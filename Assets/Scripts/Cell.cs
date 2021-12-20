@@ -5,24 +5,34 @@ public class Cell : MonoBehaviour
 {
     [SerializeField]
     GameObject _cardSprite;
-    [NonSerialized]
-    public Vector3 CellSize;
-    [NonSerialized]
-    public Vector3 CardSpriteSize;
 
+    [NonSerialized]
+    Vector3 _cellSize;
+    [NonSerialized]
+    Vector3 _cardSpriteSize;
+
+    public Vector3 CellSize => _cellSize;
+    public Vector3 CardSpriteSize => _cardSpriteSize;
+
+    SpriteRenderer _cardSpriteRenderer;
+    Transform _cardSpriteTransform;
+    CardChecker _cardChecker;
     string _identifier;
     float _rotationAngle;
     Sprite _cellSprite;
 
     void Awake()
     {
-        CellSize = Vector3.Scale(gameObject.GetComponent<BoxCollider2D>().size, gameObject.GetComponent<Transform>().localScale);
-        CardSpriteSize = Vector3.Scale(CellSize, _cardSprite.GetComponent<Transform>().localScale);
+        _cardSpriteRenderer = _cardSprite.GetComponent<SpriteRenderer>();
+        _cardSpriteTransform = _cardSprite.GetComponent<Transform>();
+        _cellSize = Vector3.Scale(gameObject.GetComponent<BoxCollider2D>().size, gameObject.GetComponent<Transform>().localScale);
+        _cardSpriteSize = Vector3.Scale(CellSize, _cardSpriteTransform.localScale);
+        _cardChecker = GameObject.Find("CardChecker").GetComponent<CardChecker>();
     }
 
     void OnMouseDown()
     {
-        GameObject.Find("CardChecker").GetComponent<CardChecker>().CompareCardIdentifiers(_identifier, this);
+        _cardChecker.CompareCardIdentifiers(_identifier, this);
     }
 
     public void SetCellParameters(string identifier, Sprite sprite, float rotationAngle)
@@ -35,8 +45,8 @@ public class Cell : MonoBehaviour
 
     void VisualizeSprite()
     {
-        _cardSprite.GetComponent<SpriteRenderer>().sprite = _cellSprite;
-        _cardSprite.transform.rotation = Quaternion.identity;
-        _cardSprite.transform.Rotate(new Vector3(0, 0, -_rotationAngle));
+        _cardSpriteRenderer.sprite = _cellSprite;
+        _cardSpriteTransform.rotation = Quaternion.identity;
+        _cardSpriteTransform.Rotate(new Vector3(0, 0, -_rotationAngle));
     }
 }

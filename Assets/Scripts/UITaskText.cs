@@ -17,7 +17,7 @@ public class UITaskText : MonoBehaviour
         _text.text = "Find " + currentObject;
     }
 
-    public void Fade(bool isNeedFadeIn)
+    public void Fade()
     {
         _fadeAnimator.FadeIn();
     }

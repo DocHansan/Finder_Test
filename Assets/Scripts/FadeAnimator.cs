@@ -4,8 +4,10 @@ using UnityEngine.UI;
 
 public class FadeAnimator : MonoBehaviour
 {
-    [Range(0f, 5f)]
-    public float FadeTime;
+    [SerializeField][Range(0f, 5f)]
+    float _fadeTime;
+
+    public float FadeTime => _fadeTime;
 
     Graphic _fadingObject;
 
@@ -24,7 +26,7 @@ public class FadeAnimator : MonoBehaviour
         _fadingObject.color = ChangeAlpha(_fadingObject.color, 0);
         while (_fadingObject.color.a < 1.0f)
         {
-            _fadingObject.color = AddAlpha(_fadingObject.color, Time.deltaTime / FadeTime);
+            _fadingObject.color = AddAlpha(_fadingObject.color, Time.deltaTime / _fadeTime);
             yield return null;
         }
 

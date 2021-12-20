@@ -2,5 +2,8 @@ using UnityEngine;
 
 public class AllCardData : MonoBehaviour
 {
-    public CardDataKit[] CardDataKits;
+    [SerializeField]
+    CardDataKit[] _cardDataKits;
+
+    public CardDataKit[] CardDataKits => _cardDataKits;
 }

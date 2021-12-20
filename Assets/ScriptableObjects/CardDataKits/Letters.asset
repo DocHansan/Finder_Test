@@ -12,82 +12,82 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f859c7a216207a47a3723eb95eb47cb, type: 3}
   m_Name: Letters
   m_EditorClassIdentifier: 
-  CardData:
-  - Identifier: A
-    Sprite: {fileID: 270001926, guid: b81cbb90a7f1ab34399610e55b9d1040, type: 3}
-    RotationAngle: 0
-  - Identifier: B
-    Sprite: {fileID: -684618029, guid: b81cbb90a7f1ab34399610e55b9d1040, type: 3}
-    RotationAngle: 0
-  - Identifier: C
-    Sprite: {fileID: 696450765, guid: b81cbb90a7f1ab34399610e55b9d1040, type: 3}
-    RotationAngle: 0
-  - Identifier: D
-    Sprite: {fileID: -197838506, guid: b81cbb90a7f1ab34399610e55b9d1040, type: 3}
-    RotationAngle: 0
-  - Identifier: E
-    Sprite: {fileID: 1981150632, guid: b81cbb90a7f1ab34399610e55b9d1040, type: 3}
-    RotationAngle: 0
-  - Identifier: F
-    Sprite: {fileID: 1914263047, guid: b81cbb90a7f1ab34399610e55b9d1040, type: 3}
-    RotationAngle: 0
-  - Identifier: G
-    Sprite: {fileID: -1705827048, guid: b81cbb90a7f1ab34399610e55b9d1040, type: 3}
-    RotationAngle: 0
-  - Identifier: H
-    Sprite: {fileID: -3029464, guid: b81cbb90a7f1ab34399610e55b9d1040, type: 3}
-    RotationAngle: 0
-  - Identifier: I
-    Sprite: {fileID: 1774174252, guid: b81cbb90a7f1ab34399610e55b9d1040, type: 3}
-    RotationAngle: 0
-  - Identifier: J
-    Sprite: {fileID: 2049000562, guid: b81cbb90a7f1ab34399610e55b9d1040, type: 3}
-    RotationAngle: 0
-  - Identifier: K
-    Sprite: {fileID: -777786852, guid: b81cbb90a7f1ab34399610e55b9d1040, type: 3}
-    RotationAngle: 0
-  - Identifier: L
-    Sprite: {fileID: 1237167526, guid: b81cbb90a7f1ab34399610e55b9d1040, type: 3}
-    RotationAngle: 0
-  - Identifier: M
-    Sprite: {fileID: -1665840783, guid: b81cbb90a7f1ab34399610e55b9d1040, type: 3}
-    RotationAngle: 0
-  - Identifier: N
-    Sprite: {fileID: 781482557, guid: 924c3fcf9aa28b44bb7dc83688ac5f6c, type: 3}
-    RotationAngle: 0
-  - Identifier: O
-    Sprite: {fileID: -1315771567, guid: 924c3fcf9aa28b44bb7dc83688ac5f6c, type: 3}
-    RotationAngle: 0
-  - Identifier: P
-    Sprite: {fileID: -559120182, guid: 924c3fcf9aa28b44bb7dc83688ac5f6c, type: 3}
-    RotationAngle: 0
-  - Identifier: Q
-    Sprite: {fileID: 1092976121, guid: 924c3fcf9aa28b44bb7dc83688ac5f6c, type: 3}
-    RotationAngle: 0
-  - Identifier: R
-    Sprite: {fileID: 1786216306, guid: 924c3fcf9aa28b44bb7dc83688ac5f6c, type: 3}
-    RotationAngle: 0
-  - Identifier: S
-    Sprite: {fileID: -423447258, guid: 924c3fcf9aa28b44bb7dc83688ac5f6c, type: 3}
-    RotationAngle: 0
-  - Identifier: T
-    Sprite: {fileID: 327014224, guid: 924c3fcf9aa28b44bb7dc83688ac5f6c, type: 3}
-    RotationAngle: 0
-  - Identifier: U
-    Sprite: {fileID: -2129253038, guid: 924c3fcf9aa28b44bb7dc83688ac5f6c, type: 3}
-    RotationAngle: 0
-  - Identifier: V
-    Sprite: {fileID: 1373131866, guid: 924c3fcf9aa28b44bb7dc83688ac5f6c, type: 3}
-    RotationAngle: 0
-  - Identifier: W
-    Sprite: {fileID: 2006643251, guid: 924c3fcf9aa28b44bb7dc83688ac5f6c, type: 3}
-    RotationAngle: 0
-  - Identifier: X
-    Sprite: {fileID: 363341454, guid: 924c3fcf9aa28b44bb7dc83688ac5f6c, type: 3}
-    RotationAngle: 0
-  - Identifier: Y
-    Sprite: {fileID: -133164399, guid: 26b4925754933ec418dc99ff48e2b5fe, type: 3}
-    RotationAngle: 0
-  - Identifier: Z
-    Sprite: {fileID: -1071712685, guid: 26b4925754933ec418dc99ff48e2b5fe, type: 3}
-    RotationAngle: 0
+  _cardData:
+  - _identifier: A
+    _sprite: {fileID: 270001926, guid: b81cbb90a7f1ab34399610e55b9d1040, type: 3}
+    _rotationAngle: 0
+  - _identifier: B
+    _sprite: {fileID: -684618029, guid: b81cbb90a7f1ab34399610e55b9d1040, type: 3}
+    _rotationAngle: 0
+  - _identifier: C
+    _sprite: {fileID: 696450765, guid: b81cbb90a7f1ab34399610e55b9d1040, type: 3}
+    _rotationAngle: 0
+  - _identifier: D
+    _sprite: {fileID: -197838506, guid: b81cbb90a7f1ab34399610e55b9d1040, type: 3}
+    _rotationAngle: 0
+  - _identifier: E
+    _sprite: {fileID: 1981150632, guid: b81cbb90a7f1ab34399610e55b9d1040, type: 3}
+    _rotationAngle: 0
+  - _identifier: F
+    _sprite: {fileID: 1914263047, guid: b81cbb90a7f1ab34399610e55b9d1040, type: 3}
+    _rotationAngle: 0
+  - _identifier: G
+    _sprite: {fileID: -1705827048, guid: b81cbb90a7f1ab34399610e55b9d1040, type: 3}
+    _rotationAngle: 0
+  - _identifier: H
+    _sprite: {fileID: -3029464, guid: b81cbb90a7f1ab34399610e55b9d1040, type: 3}
+    _rotationAngle: 0
+  - _identifier: I
+    _sprite: {fileID: 1774174252, guid: b81cbb90a7f1ab34399610e55b9d1040, type: 3}
+    _rotationAngle: 0
+  - _identifier: J
+    _sprite: {fileID: 2049000562, guid: b81cbb90a7f1ab34399610e55b9d1040, type: 3}
+    _rotationAngle: 0
+  - _identifier: K
+    _sprite: {fileID: -777786852, guid: b81cbb90a7f1ab34399610e55b9d1040, type: 3}
+    _rotationAngle: 0
+  - _identifier: L
+    _sprite: {fileID: 1237167526, guid: b81cbb90a7f1ab34399610e55b9d1040, type: 3}
+    _rotationAngle: 0
+  - _identifier: M
+    _sprite: {fileID: -1665840783, guid: b81cbb90a7f1ab34399610e55b9d1040, type: 3}
+    _rotationAngle: 0
+  - _identifier: N
+    _sprite: {fileID: 781482557, guid: 924c3fcf9aa28b44bb7dc83688ac5f6c, type: 3}
+    _rotationAngle: 0
+  - _identifier: O
+    _sprite: {fileID: -1315771567, guid: 924c3fcf9aa28b44bb7dc83688ac5f6c, type: 3}
+    _rotationAngle: 0
+  - _identifier: P
+    _sprite: {fileID: -559120182, guid: 924c3fcf9aa28b44bb7dc83688ac5f6c, type: 3}
+    _rotationAngle: 0
+  - _identifier: Q
+    _sprite: {fileID: 1092976121, guid: 924c3fcf9aa28b44bb7dc83688ac5f6c, type: 3}
+    _rotationAngle: 0
+  - _identifier: R
+    _sprite: {fileID: 1786216306, guid: 924c3fcf9aa28b44bb7dc83688ac5f6c, type: 3}
+    _rotationAngle: 0
+  - _identifier: S
+    _sprite: {fileID: -423447258, guid: 924c3fcf9aa28b44bb7dc83688ac5f6c, type: 3}
+    _rotationAngle: 0
+  - _identifier: T
+    _sprite: {fileID: 327014224, guid: 924c3fcf9aa28b44bb7dc83688ac5f6c, type: 3}
+    _rotationAngle: 0
+  - _identifier: U
+    _sprite: {fileID: -2129253038, guid: 924c3fcf9aa28b44bb7dc83688ac5f6c, type: 3}
+    _rotationAngle: 0
+  - _identifier: V
+    _sprite: {fileID: 1373131866, guid: 924c3fcf9aa28b44bb7dc83688ac5f6c, type: 3}
+    _rotationAngle: 0
+  - _identifier: W
+    _sprite: {fileID: 2006643251, guid: 924c3fcf9aa28b44bb7dc83688ac5f6c, type: 3}
+    _rotationAngle: 0
+  - _identifier: X
+    _sprite: {fileID: 363341454, guid: 924c3fcf9aa28b44bb7dc83688ac5f6c, type: 3}
+    _rotationAngle: 0
+  - _identifier: Y
+    _sprite: {fileID: -133164399, guid: 26b4925754933ec418dc99ff48e2b5fe, type: 3}
+    _rotationAngle: 0
+  - _identifier: Z
+    _sprite: {fileID: -1071712685, guid: 26b4925754933ec418dc99ff48e2b5fe, type: 3}
+    _rotationAngle: 0

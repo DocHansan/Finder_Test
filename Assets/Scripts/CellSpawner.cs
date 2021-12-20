@@ -6,7 +6,7 @@ public class CellSpawner : MonoBehaviour
     {
         GameObject newCell = Instantiate(cellPrefab, position, Quaternion.identity);
         if (isNeedBounce)
-            newCell.GetComponent<CellAnimator>().Bounce();
+            newCell.GetComponent<CellAnimator>().BounceCell();
         return newCell;
     }
 }
