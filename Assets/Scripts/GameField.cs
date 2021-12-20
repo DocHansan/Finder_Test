@@ -44,10 +44,14 @@ public class GameField : MonoBehaviour
 
     public void CreateLevel()
     {
-        _dataPreparer.CreateLevelData(_levelIteration * _cellColumnCount);
-        _curentCardIdentifier = _dataPreparer.GetChosenCardType;
-        _uiTaskText.UpdateTaskText(_curentCardIdentifier);
-        CreateCellColumn();
+        if (_dataPreparer.CreateLevelData(_levelIteration * _cellColumnCount))
+        {
+            _curentCardIdentifier = _dataPreparer.GetChosenCardType;
+            _uiTaskText.UpdateTaskText(_curentCardIdentifier);
+            CreateCellColumn();
+            return;
+        }
+        _gameEnder.EndGame();
     }
 
     void CreateCellColumn()
