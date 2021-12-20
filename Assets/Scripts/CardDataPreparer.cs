@@ -3,57 +3,74 @@ using UnityEngine;
 
 public class CardDataPreparer
 {
-    readonly AllCardData _cardDataKits;
+    readonly CardDataKit[] _cardDataKits;
     int _chosenCardDataKit;
     int _chosenCard;
     List<int> _cardDataIndexes;
+    int _cardDataKitsLenth;
     readonly List<string>[] _previousChosenCards;
 
     public List<int> GetLevelCardIndexes => _cardDataIndexes;
     public int GetChosenCardDataKit => _chosenCardDataKit;
-    public string GetChosenCardType => _cardDataKits.CardDataKits[_chosenCardDataKit].CardData[_chosenCard].Identifier;
+    public string GetChosenCardType => _cardDataKits[_chosenCardDataKit].CardData[_chosenCard].Identifier;
 
     public CardDataPreparer(AllCardData InputCardData)
     {
-        _cardDataKits = InputCardData;
+        _cardDataKits = InputCardData.CardDataKits;
+        _cardDataKitsLenth = _cardDataKits.Length;
 
-        _previousChosenCards = new List<string>[_cardDataKits.CardDataKits.Length];
+        _previousChosenCards = new List<string>[_cardDataKitsLenth];
         for (int i = 0; i < _previousChosenCards.Length; i++)
         {
             _previousChosenCards[i] = new List<string>();
         }
     }
 
-    public void CreateLevelData(int lengthResultList)
+    public bool CreateLevelData(int lengthResultList)
     {
-        _chosenCardDataKit = Random.Range(0, _cardDataKits.CardDataKits.Length);
+        List<int> validDataKitsIndexes = GetValidDataKitsIndexes(lengthResultList);
+        int validDataKitsCount = validDataKitsIndexes.Count;
 
-        // Endless recursion if small DataKits
-        if (!IsValidDataKit(lengthResultList))
-        {
-            CreateLevelData(lengthResultList);
-            return;
-        }
+        if (validDataKitsCount == 0)
+            return false;
 
-        _chosenCard = Random.Range(0, lengthResultList);
+        _chosenCardDataKit = validDataKitsIndexes[Random.Range(0, validDataKitsCount)];
         _cardDataIndexes = new List<int>();
+        CardData[] cardData = _cardDataKits[_chosenCardDataKit].CardData;
 
         while (_cardDataIndexes.Count < lengthResultList)
         {
-            int tempIndex = Random.Range(0, _cardDataKits.CardDataKits[_chosenCardDataKit].CardData.Length);
-            string tempCard = _cardDataKits.CardDataKits[_chosenCardDataKit].CardData[tempIndex].Identifier;
+            int tempIndex = Random.Range(0, cardData.Length);
 
-            if (_cardDataIndexes.Contains(tempIndex) || _previousChosenCards[_chosenCardDataKit].Contains(tempCard))
+            if (_cardDataIndexes.Contains(tempIndex))
                 continue;
 
             _cardDataIndexes.Add(tempIndex);
         }
-        _chosenCard = _cardDataIndexes[_chosenCard];
-        _previousChosenCards[_chosenCardDataKit].Add(_cardDataKits.CardDataKits[_chosenCardDataKit].CardData[_chosenCard].Identifier);
+        _chosenCard = ChooseCard();
+        _previousChosenCards[_chosenCardDataKit].Add(cardData[_chosenCard].Identifier);
+        return true;
     }
 
-    bool IsValidDataKit(int lengthResultList)
+    List<int> GetValidDataKitsIndexes(int lengthResultList)
     {
-        return _cardDataKits.CardDataKits[_chosenCardDataKit].CardData.Length - _previousChosenCards[_chosenCardDataKit].Count > lengthResultList;
+        List<int> validDataKitsIndexes = new List<int>();
+
+        for (int i = 0; i < _cardDataKitsLenth; i++)
+        {
+            int currentCardDataLenth = _cardDataKits[i].CardData.Length;
+            int currentPreviousChosenCardsCount = _previousChosenCards[i].Count;
+            if (currentCardDataLenth - currentPreviousChosenCardsCount > 0 && currentCardDataLenth >= lengthResultList)
+                validDataKitsIndexes.Add(i);
+        }
+        return validDataKitsIndexes;
+    }
+
+    int ChooseCard()
+    {
+        int chosenCard = _cardDataIndexes[Random.Range(0, _cardDataIndexes.Count)];
+        if (_previousChosenCards[_chosenCardDataKit].Contains(_cardDataKits[_chosenCardDataKit].CardData[chosenCard].Identifier))
+            return ChooseCard();
+        return chosenCard;
     }
 }
