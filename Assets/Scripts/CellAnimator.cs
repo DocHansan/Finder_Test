@@ -14,6 +14,7 @@ public class CellAnimator : MonoBehaviour
     Vector3 _cardSpriteSize;
     Transform _cardGameObject;
     Transform _cellGameObject;
+    ParticleSystem _cellStarsParticle;
 
     void Awake()
     {
@@ -21,7 +22,8 @@ public class CellAnimator : MonoBehaviour
         _cellSize = cell.CellSize;
         _cardSpriteSize = cell.CardSpriteSize;
         _cardGameObject = gameObject.transform;
-        _cellGameObject = _cardGameObject.GetChild(0).gameObject.transform;
+        _cellGameObject = _cardGameObject.GetChild(0);
+        _cellStarsParticle = _cardGameObject.GetChild(1).GetComponent<ParticleSystem>();
     }
 
     public void BounceCell()
@@ -44,5 +46,10 @@ public class CellAnimator : MonoBehaviour
     {
         transform.DORewind();
         transform.DOPunchScale(punch, duration, vibratio);
+    }
+
+    public void MakeStars()
+    {
+        _cellStarsParticle.Play();
     }
 }

@@ -20,6 +20,7 @@ public class CardChecker : MonoBehaviour
         }
 
         cellAnimator.BounceCard();
+        cellAnimator.MakeStars();
         if (_isRightCardClicked)
             return;
         _isRightCardClicked = true;
