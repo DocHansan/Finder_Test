@@ -52,7 +52,7 @@ public class CardDataPreparer
 
     List<int> GetValidDataKitsIndexes(int resultListLength)
     {
-        List<int> validDataKitsIndexes = new();
+        List<int> validDataKitsIndexes = new List<int>();
 
         for (int i = 0; i < _cardDataKitsLength; i++)
         {

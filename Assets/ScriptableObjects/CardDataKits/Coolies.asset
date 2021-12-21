@@ -14,32 +14,42 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cardData:
   - _identifier: 1
-    _sprite: {fileID: 1836695118, guid: 10572a81ef72b21448dc47cadc2c0fb7, type: 3}
+    _sprite: {fileID: 2781409653534389846, guid: 10572a81ef72b21448dc47cadc2c0fb7,
+      type: 3}
     _rotationAngle: 0
   - _identifier: 2
-    _sprite: {fileID: -2142141449, guid: 10572a81ef72b21448dc47cadc2c0fb7, type: 3}
+    _sprite: {fileID: -8272680030323357767, guid: 10572a81ef72b21448dc47cadc2c0fb7,
+      type: 3}
     _rotationAngle: 0
   - _identifier: 3
-    _sprite: {fileID: 1073292687, guid: 10572a81ef72b21448dc47cadc2c0fb7, type: 3}
+    _sprite: {fileID: 8661558827372417628, guid: 10572a81ef72b21448dc47cadc2c0fb7,
+      type: 3}
     _rotationAngle: 0
   - _identifier: 4
-    _sprite: {fileID: -442610518, guid: 10572a81ef72b21448dc47cadc2c0fb7, type: 3}
+    _sprite: {fileID: -7498237999994640566, guid: 10572a81ef72b21448dc47cadc2c0fb7,
+      type: 3}
     _rotationAngle: 0
   - _identifier: 5
-    _sprite: {fileID: 553783116, guid: 10572a81ef72b21448dc47cadc2c0fb7, type: 3}
+    _sprite: {fileID: -5458527002025140212, guid: 10572a81ef72b21448dc47cadc2c0fb7,
+      type: 3}
     _rotationAngle: 0
   - _identifier: 6
-    _sprite: {fileID: 1620434229, guid: 10572a81ef72b21448dc47cadc2c0fb7, type: 3}
+    _sprite: {fileID: 4995980186205548787, guid: 10572a81ef72b21448dc47cadc2c0fb7,
+      type: 3}
     _rotationAngle: 0
   - _identifier: 7
-    _sprite: {fileID: -1750535463, guid: 10572a81ef72b21448dc47cadc2c0fb7, type: 3}
+    _sprite: {fileID: -3369910557842650775, guid: 10572a81ef72b21448dc47cadc2c0fb7,
+      type: 3}
     _rotationAngle: -90
   - _identifier: 8
-    _sprite: {fileID: 128944550, guid: 10572a81ef72b21448dc47cadc2c0fb7, type: 3}
+    _sprite: {fileID: 3193354834531349819, guid: 10572a81ef72b21448dc47cadc2c0fb7,
+      type: 3}
     _rotationAngle: -90
   - _identifier: 9
-    _sprite: {fileID: 714681317, guid: 7fc0ba9b79d2f124fb6e6374c3650fed, type: 3}
+    _sprite: {fileID: 4187230823822966344, guid: 7fc0ba9b79d2f124fb6e6374c3650fed,
+      type: 3}
     _rotationAngle: 0
   - _identifier: 10
-    _sprite: {fileID: -1449349212, guid: 883f7dceb2d7c254f9666c8de78335b6, type: 3}
+    _sprite: {fileID: -2228436384124966236, guid: 883f7dceb2d7c254f9666c8de78335b6,
+      type: 3}
     _rotationAngle: 0

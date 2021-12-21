@@ -14,80 +14,106 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cardData:
   - _identifier: A
-    _sprite: {fileID: 270001926, guid: b81cbb90a7f1ab34399610e55b9d1040, type: 3}
+    _sprite: {fileID: -6574405069718934150, guid: b81cbb90a7f1ab34399610e55b9d1040,
+      type: 3}
     _rotationAngle: 0
   - _identifier: B
-    _sprite: {fileID: -684618029, guid: b81cbb90a7f1ab34399610e55b9d1040, type: 3}
+    _sprite: {fileID: 1620349012300495677, guid: b81cbb90a7f1ab34399610e55b9d1040,
+      type: 3}
     _rotationAngle: 0
   - _identifier: C
-    _sprite: {fileID: 696450765, guid: b81cbb90a7f1ab34399610e55b9d1040, type: 3}
+    _sprite: {fileID: -8281546426198203714, guid: b81cbb90a7f1ab34399610e55b9d1040,
+      type: 3}
     _rotationAngle: 0
   - _identifier: D
-    _sprite: {fileID: -197838506, guid: b81cbb90a7f1ab34399610e55b9d1040, type: 3}
+    _sprite: {fileID: 3582169046452116511, guid: b81cbb90a7f1ab34399610e55b9d1040,
+      type: 3}
     _rotationAngle: 0
   - _identifier: E
-    _sprite: {fileID: 1981150632, guid: b81cbb90a7f1ab34399610e55b9d1040, type: 3}
+    _sprite: {fileID: 5243910837761348580, guid: b81cbb90a7f1ab34399610e55b9d1040,
+      type: 3}
     _rotationAngle: 0
   - _identifier: F
-    _sprite: {fileID: 1914263047, guid: b81cbb90a7f1ab34399610e55b9d1040, type: 3}
+    _sprite: {fileID: -2749810170344392859, guid: b81cbb90a7f1ab34399610e55b9d1040,
+      type: 3}
     _rotationAngle: 0
   - _identifier: G
-    _sprite: {fileID: -1705827048, guid: b81cbb90a7f1ab34399610e55b9d1040, type: 3}
+    _sprite: {fileID: 1865488124831573334, guid: b81cbb90a7f1ab34399610e55b9d1040,
+      type: 3}
     _rotationAngle: 0
   - _identifier: H
-    _sprite: {fileID: -3029464, guid: b81cbb90a7f1ab34399610e55b9d1040, type: 3}
+    _sprite: {fileID: -4093961809195881714, guid: b81cbb90a7f1ab34399610e55b9d1040,
+      type: 3}
     _rotationAngle: 0
   - _identifier: I
-    _sprite: {fileID: 1774174252, guid: b81cbb90a7f1ab34399610e55b9d1040, type: 3}
+    _sprite: {fileID: 5095377012005246247, guid: b81cbb90a7f1ab34399610e55b9d1040,
+      type: 3}
     _rotationAngle: 0
   - _identifier: J
-    _sprite: {fileID: 2049000562, guid: b81cbb90a7f1ab34399610e55b9d1040, type: 3}
+    _sprite: {fileID: -4750875846875431244, guid: b81cbb90a7f1ab34399610e55b9d1040,
+      type: 3}
     _rotationAngle: 0
   - _identifier: K
-    _sprite: {fileID: -777786852, guid: b81cbb90a7f1ab34399610e55b9d1040, type: 3}
+    _sprite: {fileID: -7412916997587848750, guid: b81cbb90a7f1ab34399610e55b9d1040,
+      type: 3}
     _rotationAngle: 0
   - _identifier: L
-    _sprite: {fileID: 1237167526, guid: b81cbb90a7f1ab34399610e55b9d1040, type: 3}
+    _sprite: {fileID: -8459147081990507314, guid: b81cbb90a7f1ab34399610e55b9d1040,
+      type: 3}
     _rotationAngle: 0
   - _identifier: M
-    _sprite: {fileID: -1665840783, guid: b81cbb90a7f1ab34399610e55b9d1040, type: 3}
+    _sprite: {fileID: 2678011214059187417, guid: b81cbb90a7f1ab34399610e55b9d1040,
+      type: 3}
     _rotationAngle: 0
   - _identifier: N
-    _sprite: {fileID: 781482557, guid: 924c3fcf9aa28b44bb7dc83688ac5f6c, type: 3}
+    _sprite: {fileID: 8335605939901187660, guid: 924c3fcf9aa28b44bb7dc83688ac5f6c,
+      type: 3}
     _rotationAngle: 0
   - _identifier: O
-    _sprite: {fileID: -1315771567, guid: 924c3fcf9aa28b44bb7dc83688ac5f6c, type: 3}
+    _sprite: {fileID: 1202742248024374382, guid: 924c3fcf9aa28b44bb7dc83688ac5f6c,
+      type: 3}
     _rotationAngle: 0
   - _identifier: P
-    _sprite: {fileID: -559120182, guid: 924c3fcf9aa28b44bb7dc83688ac5f6c, type: 3}
+    _sprite: {fileID: -8864091212568746814, guid: 924c3fcf9aa28b44bb7dc83688ac5f6c,
+      type: 3}
     _rotationAngle: 0
   - _identifier: Q
-    _sprite: {fileID: 1092976121, guid: 924c3fcf9aa28b44bb7dc83688ac5f6c, type: 3}
+    _sprite: {fileID: -1826960770898675793, guid: 924c3fcf9aa28b44bb7dc83688ac5f6c,
+      type: 3}
     _rotationAngle: 0
   - _identifier: R
-    _sprite: {fileID: 1786216306, guid: 924c3fcf9aa28b44bb7dc83688ac5f6c, type: 3}
+    _sprite: {fileID: 6072378884944970964, guid: 924c3fcf9aa28b44bb7dc83688ac5f6c,
+      type: 3}
     _rotationAngle: 0
   - _identifier: S
-    _sprite: {fileID: -423447258, guid: 924c3fcf9aa28b44bb7dc83688ac5f6c, type: 3}
+    _sprite: {fileID: -1515352701281279707, guid: 924c3fcf9aa28b44bb7dc83688ac5f6c,
+      type: 3}
     _rotationAngle: 0
   - _identifier: T
-    _sprite: {fileID: 327014224, guid: 924c3fcf9aa28b44bb7dc83688ac5f6c, type: 3}
+    _sprite: {fileID: 5790184358170311464, guid: 924c3fcf9aa28b44bb7dc83688ac5f6c,
+      type: 3}
     _rotationAngle: 0
   - _identifier: U
-    _sprite: {fileID: -2129253038, guid: 924c3fcf9aa28b44bb7dc83688ac5f6c, type: 3}
+    _sprite: {fileID: -1734382202967679760, guid: 924c3fcf9aa28b44bb7dc83688ac5f6c,
+      type: 3}
     _rotationAngle: 0
   - _identifier: V
-    _sprite: {fileID: 1373131866, guid: 924c3fcf9aa28b44bb7dc83688ac5f6c, type: 3}
+    _sprite: {fileID: -7383931262606576728, guid: 924c3fcf9aa28b44bb7dc83688ac5f6c,
+      type: 3}
     _rotationAngle: 0
   - _identifier: W
-    _sprite: {fileID: 2006643251, guid: 924c3fcf9aa28b44bb7dc83688ac5f6c, type: 3}
+    _sprite: {fileID: -7868341305534033930, guid: 924c3fcf9aa28b44bb7dc83688ac5f6c,
+      type: 3}
     _rotationAngle: 0
   - _identifier: X
-    _sprite: {fileID: 363341454, guid: 924c3fcf9aa28b44bb7dc83688ac5f6c, type: 3}
+    _sprite: {fileID: -4100856615524767055, guid: 924c3fcf9aa28b44bb7dc83688ac5f6c,
+      type: 3}
     _rotationAngle: 0
   - _identifier: Y
-    _sprite: {fileID: -133164399, guid: 26b4925754933ec418dc99ff48e2b5fe, type: 3}
+    _sprite: {fileID: 1120643563201087248, guid: 26b4925754933ec418dc99ff48e2b5fe,
+      type: 3}
     _rotationAngle: 0
   - _identifier: Z
-    _sprite: {fileID: -1071712685, guid: 26b4925754933ec418dc99ff48e2b5fe, type: 3}
+    _sprite: {fileID: 7102174880887597050, guid: 26b4925754933ec418dc99ff48e2b5fe,
+      type: 3}
     _rotationAngle: 0
