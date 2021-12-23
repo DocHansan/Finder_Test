@@ -10,6 +10,6 @@ public class GameStarter : MonoBehaviour
     void Start()
     {
         _taskText.FadeIn();
-        _gameField.ChangeLevel—omplexity();
+        _gameField.ChangeLevelComplexity();
     }
 }

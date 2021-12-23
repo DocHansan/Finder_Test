@@ -88,7 +88,7 @@ public class GameField : MonoBehaviour
         }
     }
 
-    public void ChangeLevel—omplexity()
+    public void ChangeLevelComplexity()
     {
         if (_levelIteration < _cellLineCount)
         {

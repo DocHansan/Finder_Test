@@ -27,6 +27,6 @@ public class CardChecker : MonoBehaviour
     void ChangeLevel()
     {
         _isRightCardClicked = false;
-        _gameField.ChangeLevel—omplexity();
+        _gameField.ChangeLevelComplexity();
     }
 }
